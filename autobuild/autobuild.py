@@ -4,6 +4,8 @@
 #./autobuild.py -p youproject.xcodeproj -s schemename
 #./autobuild.py -w youproject.xcworkspace -s schemename
 
+# ./autobuild.py -p ../GoodNight.xcodeproj -s GoodNight
+
 import argparse
 import subprocess
 import requests

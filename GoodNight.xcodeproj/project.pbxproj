@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA1AD46D1E18167B00E50ADB /* autobuild.py in Resources */ = {isa = PBXBuildFile; fileRef = BA1AD46B1E18167B00E50ADB /* autobuild.py */; };
+		BA1AD46E1E18167B00E50ADB /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1AD46C1E18167B00E50ADB /* exportOptions.plist */; };
 		BACF29D71E1691A900E28D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29D61E1691A900E28D42 /* AppDelegate.swift */; };
 		BACF29D91E1691A900E28D42 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29D81E1691A900E28D42 /* FirstViewController.swift */; };
 		BACF29DB1E1691A900E28D42 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29DA1E1691A900E28D42 /* SecondViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA1AD46B1E18167B00E50ADB /* autobuild.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = autobuild.py; sourceTree = "<group>"; };
+		BA1AD46C1E18167B00E50ADB /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
 		BACF29D31E1691A900E28D42 /* GoodNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BACF29D61E1691A900E28D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BACF29D81E1691A900E28D42 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -76,9 +80,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA1AD46A1E18167B00E50ADB /* autobuild */ = {
+			isa = PBXGroup;
+			children = (
+				BA1AD46B1E18167B00E50ADB /* autobuild.py */,
+				BA1AD46C1E18167B00E50ADB /* exportOptions.plist */,
+			);
+			path = autobuild;
+			sourceTree = "<group>";
+		};
 		BACF29CA1E1691A800E28D42 = {
 			isa = PBXGroup;
 			children = (
+				BA1AD46A1E18167B00E50ADB /* autobuild */,
 				BACF29D51E1691A900E28D42 /* GoodNight */,
 				BACF29EC1E1691A900E28D42 /* GoodNightTests */,
 				BACF29F71E1691A900E28D42 /* GoodNightUITests */,
@@ -99,10 +113,10 @@
 		BACF29D51E1691A900E28D42 /* GoodNight */ = {
 			isa = PBXGroup;
 			children = (
+				BACF29DC1E1691A900E28D42 /* Main.storyboard */,
 				BACF29D61E1691A900E28D42 /* AppDelegate.swift */,
 				BACF29D81E1691A900E28D42 /* FirstViewController.swift */,
 				BACF29DA1E1691A900E28D42 /* SecondViewController.swift */,
-				BACF29DC1E1691A900E28D42 /* Main.storyboard */,
 				BACF29DF1E1691A900E28D42 /* Assets.xcassets */,
 				BACF29E11E1691A900E28D42 /* LaunchScreen.storyboard */,
 				BACF29E41E1691A900E28D42 /* Info.plist */,
@@ -238,7 +252,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA1AD46D1E18167B00E50ADB /* autobuild.py in Resources */,
 				BACF29E31E1691A900E28D42 /* LaunchScreen.storyboard in Resources */,
+				BA1AD46E1E18167B00E50ADB /* exportOptions.plist in Resources */,
 				BACF29E01E1691A900E28D42 /* Assets.xcassets in Resources */,
 				BACF29DE1E1691A900E28D42 /* Main.storyboard in Resources */,
 			);
@@ -520,6 +536,7 @@
 				BACF29FF1E1691A900E28D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BACF2A001E1691A900E28D42 /* Build configuration list for PBXNativeTarget "GoodNightTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +545,7 @@
 				BACF2A021E1691A900E28D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BACF2A031E1691A900E28D42 /* Build configuration list for PBXNativeTarget "GoodNightUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +554,7 @@
 				BACF2A051E1691A900E28D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

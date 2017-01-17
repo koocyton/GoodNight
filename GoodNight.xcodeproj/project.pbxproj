@@ -119,10 +119,10 @@
 				BACF29D61E1691A900E28D42 /* AppDelegate.swift */,
 				BACF29D81E1691A900E28D42 /* RecordViewController.swift */,
 				BACF29DA1E1691A900E28D42 /* SleepViewController.swift */,
+				BAD4AF6C1E2DAFBD007C297A /* ShoppingViewController.swift */,
 				BACF29DF1E1691A900E28D42 /* Assets.xcassets */,
 				BACF29E11E1691A900E28D42 /* LaunchScreen.storyboard */,
 				BACF29E41E1691A900E28D42 /* Info.plist */,
-				BAD4AF6C1E2DAFBD007C297A /* ShoppingViewController.swift */,
 			);
 			path = GoodNight;
 			sourceTree = "<group>";

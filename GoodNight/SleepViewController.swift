@@ -8,24 +8,18 @@
 
 import UIKit
 
-class SleepViewController: UIViewController {
+class SleepViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //加载网页
-        var url = NSURL(string: "http://blog.csdn.net/emperorzhi/article/details/44049985");
-        var request = NSURLRequest(URL: url!);
-        webview.loadRequest(request);
-    }
-    
-    //当视图装载时调用www.2cto.com
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // request url
+        let url = URL(string: "https://www.hushuang.me/");
+        let request = URLRequest(url: url!);
+        webView.loadRequest(request)
     }
 
     override func didReceiveMemoryWarning() {

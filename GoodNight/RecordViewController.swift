@@ -10,9 +10,16 @@ import UIKit
 
 class RecordViewController: UIViewController, UIWebViewDelegate {
 
+    @IBOutlet weak var webView: UIWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        // request url
+        let url = URL(string: "https://www.baidu.com/");
+        let request = URLRequest(url: url!);
+        webView.loadRequest(request)
     }
 
     override func didReceiveMemoryWarning() {

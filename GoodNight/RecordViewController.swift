@@ -15,11 +15,11 @@ class RecordViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        // request url
-        let url = URL(string: "https://www.baidu.com/");
-        let request = URLRequest(url: url!);
-        webView.loadRequest(request)
+        
+        // load local html
+        let path = Bundle.main.path(forResource: "RecordView", ofType: "html")
+        let url = NSURL.fileURL(withPath: path!)
+        webView.loadRequest(URLRequest(url: url))
     }
 
     override func didReceiveMemoryWarning() {

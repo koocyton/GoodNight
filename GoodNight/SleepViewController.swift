@@ -16,10 +16,10 @@ class SleepViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        // request url
-        let url = URL(string: "https://www.hushuang.me/");
-        let request = URLRequest(url: url!);
-        webView.loadRequest(request)
+        // load local html
+        let path = Bundle.main.path(forResource: "SleepView", ofType: "html")
+        let url = NSURL.fileURL(withPath: path!)
+        webView.loadRequest(URLRequest(url: url))
     }
 
     override func didReceiveMemoryWarning() {

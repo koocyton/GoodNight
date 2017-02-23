@@ -50,7 +50,7 @@ def uploadIpaToPgyer(ipaPath):
     headers = {'enctype':'multipart/form-data'}
     payload = {'uKey':USER_KEY,'_api_key':API_KEY,'publishRange':'2','isPublishToPublic':'2', 'password':PYGER_PASSWORD}
     print "uploading...."
-    r = requests.post(PGYER_UPLOAD_URL, data = payload ,files=files,headers=headers)
+    r = requests.post(PGYER_UPLOAD_URL, data = payload,files=files,headers=headers,timeout=251)
     if r.status_code == requests.codes.ok:
          result = r.json()
          parserUploadResult(result)

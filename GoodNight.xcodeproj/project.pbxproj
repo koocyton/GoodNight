@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BA1AD46D1E18167B00E50ADB /* autobuild.py in Resources */ = {isa = PBXBuildFile; fileRef = BA1AD46B1E18167B00E50ADB /* autobuild.py */; };
 		BA1AD46E1E18167B00E50ADB /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1AD46C1E18167B00E50ADB /* exportOptions.plist */; };
+		BA99071F1E5D5CC600631F2C /* RecordView.html in Resources */ = {isa = PBXBuildFile; fileRef = BA99071D1E5D5CC600631F2C /* RecordView.html */; };
+		BA9907201E5D5CC600631F2C /* SleepView.html in Resources */ = {isa = PBXBuildFile; fileRef = BA99071E1E5D5CC600631F2C /* SleepView.html */; };
 		BACF29D71E1691A900E28D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29D61E1691A900E28D42 /* AppDelegate.swift */; };
 		BACF29D91E1691A900E28D42 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29D81E1691A900E28D42 /* RecordViewController.swift */; };
 		BACF29DB1E1691A900E28D42 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29DA1E1691A900E28D42 /* SleepViewController.swift */; };
@@ -18,6 +20,8 @@
 		BACF29EE1E1691A900E28D42 /* GoodNightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29ED1E1691A900E28D42 /* GoodNightTests.swift */; };
 		BACF29F91E1691A900E28D42 /* GoodNightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29F81E1691A900E28D42 /* GoodNightUITests.swift */; };
 		BAD4AF6D1E2DAFBD007C297A /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD4AF6C1E2DAFBD007C297A /* ShoppingViewController.swift */; };
+		BAF468A81E5F040A00F95311 /* ShoppingView.html in Resources */ = {isa = PBXBuildFile; fileRef = BAF468A71E5F040A00F95311 /* ShoppingView.html */; };
+		BAF468AA1E5F041E00F95311 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = BAF468A91E5F041E00F95311 /* style.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,8 @@
 /* Begin PBXFileReference section */
 		BA1AD46B1E18167B00E50ADB /* autobuild.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = autobuild.py; sourceTree = "<group>"; };
 		BA1AD46C1E18167B00E50ADB /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
+		BA99071D1E5D5CC600631F2C /* RecordView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RecordView.html; sourceTree = "<group>"; };
+		BA99071E1E5D5CC600631F2C /* SleepView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SleepView.html; sourceTree = "<group>"; };
 		BACF29D31E1691A900E28D42 /* GoodNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BACF29D61E1691A900E28D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BACF29D81E1691A900E28D42 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +61,8 @@
 		BACF29F81E1691A900E28D42 /* GoodNightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodNightUITests.swift; sourceTree = "<group>"; };
 		BACF29FA1E1691A900E28D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAD4AF6C1E2DAFBD007C297A /* ShoppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
+		BAF468A71E5F040A00F95311 /* ShoppingView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ShoppingView.html; sourceTree = "<group>"; };
+		BAF468A91E5F041E00F95311 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +99,22 @@
 			path = autobuild;
 			sourceTree = "<group>";
 		};
+		BA99071C1E5D5CC600631F2C /* webview */ = {
+			isa = PBXGroup;
+			children = (
+				BA99071D1E5D5CC600631F2C /* RecordView.html */,
+				BA99071E1E5D5CC600631F2C /* SleepView.html */,
+				BAF468A71E5F040A00F95311 /* ShoppingView.html */,
+				BAF468A91E5F041E00F95311 /* style.css */,
+			);
+			path = webview;
+			sourceTree = "<group>";
+		};
 		BACF29CA1E1691A800E28D42 = {
 			isa = PBXGroup;
 			children = (
-				BA1AD46A1E18167B00E50ADB /* autobuild */,
 				BACF29D51E1691A900E28D42 /* GoodNight */,
+				BA1AD46A1E18167B00E50ADB /* autobuild */,
 				BACF29EC1E1691A900E28D42 /* GoodNightTests */,
 				BACF29F71E1691A900E28D42 /* GoodNightUITests */,
 				BACF29D41E1691A900E28D42 /* Products */,
@@ -115,6 +134,7 @@
 		BACF29D51E1691A900E28D42 /* GoodNight */ = {
 			isa = PBXGroup;
 			children = (
+				BA99071C1E5D5CC600631F2C /* webview */,
 				BACF29DC1E1691A900E28D42 /* Main.storyboard */,
 				BACF29D61E1691A900E28D42 /* AppDelegate.swift */,
 				BACF29D81E1691A900E28D42 /* RecordViewController.swift */,
@@ -256,10 +276,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1AD46D1E18167B00E50ADB /* autobuild.py in Resources */,
+				BAF468AA1E5F041E00F95311 /* style.css in Resources */,
 				BACF29E31E1691A900E28D42 /* LaunchScreen.storyboard in Resources */,
+				BA9907201E5D5CC600631F2C /* SleepView.html in Resources */,
 				BA1AD46E1E18167B00E50ADB /* exportOptions.plist in Resources */,
 				BACF29E01E1691A900E28D42 /* Assets.xcassets in Resources */,
+				BA99071F1E5D5CC600631F2C /* RecordView.html in Resources */,
 				BACF29DE1E1691A900E28D42 /* Main.storyboard in Resources */,
+				BAF468A81E5F040A00F95311 /* ShoppingView.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.doopp.ios.GoodNight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -460,6 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.doopp.ios.GoodNight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

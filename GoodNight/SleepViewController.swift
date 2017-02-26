@@ -10,16 +10,10 @@ import UIKit
 
 class SleepViewController: UIViewController, UIWebViewDelegate {
 
-    @IBOutlet weak var webView: UIWebView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        // load local html
-        let path = Bundle.main.path(forResource: "SleepView", ofType: "html")
-        let url = NSURL.fileURL(withPath: path!)
-        webView.loadRequest(URLRequest(url: url))
     }
 
     override func didReceiveMemoryWarning() {

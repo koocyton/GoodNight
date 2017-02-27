@@ -54,7 +54,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="睡眠" image="sleep" selectedImage="sleep" id="cPa-gy-q4n" userLabel="睡眠"/>
                     <connections>
-                        <outletCollection property="CollectionView" destination="JTj-Q9-sjf" id="i71-v8-rdh"/>
+                        <outletCollection property="collectionView" destination="JTj-Q9-sjf" id="UTl-nX-H8Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

@@ -8,14 +8,16 @@
 
 import UIKit
 
-class SleepViewController: UIViewController, UICollectionViewDelegate {
+class SleepViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    @IBOutlet var collectionView: [UICollectionView]!
+    @IBOutlet weak var coverCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        coverCollectionView.dataSource = self
+        coverCollectionView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,20 +26,24 @@ class SleepViewController: UIViewController, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 18;
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let coverCell = collectionView.dequeueReusableCell(withReuseIdentifier: "coverCell", for: indexPath) as! CoverCellContent
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath);
-        
-        cell.imageView.image = UIImage(named: "\(indexPath.row + 2).png")
-        cell.label.text = "美景\(indexPath.row + 1)"
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        coverCell.coverImage.image = UIImage(named:"normal")
+        coverCell.coverLabel.text = "\(indexPath.section):\(indexPath.row)"
+
+        return coverCell
     }
 }
 
+class CoverCellContent: UICollectionViewCell {
+
+    @IBOutlet var coverImage: UIImageView!
+
+    @IBOutlet var coverLabel: UILabel!
+    
+}

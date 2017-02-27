@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsViewController: UIViewController, UIWebViewDelegate {
+class FriendsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

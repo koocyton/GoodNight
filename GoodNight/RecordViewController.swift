@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecordViewController: UIViewController, UIWebViewDelegate {
+class RecordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

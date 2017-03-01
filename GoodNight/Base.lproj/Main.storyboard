@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Record-->
+        <!--Sleep-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="9pv-A4-QxB" userLabel="Record" customClass="RecordViewController" customModule="GoodNight" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="9pv-A4-QxB" userLabel="Sleep" customClass="SleepViewController" customModule="GoodNight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -17,60 +17,64 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="记录" image="record" selectedImage="record" id="acW-dT-cKf" userLabel="Record"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="618" y="393"/>
-        </scene>
-        <!--Sleep-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController wantsFullScreenLayout="YES" id="8rJ-Kc-sve" userLabel="Sleep" customClass="SleepViewController" customModule="GoodNight" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wie-Yu-8yw">
-                                <frame key="frameInset" minY="20" maxY="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VDV-r3-mSY" userLabel="Catalog Collection View">
+                                <frame key="frameInset" minY="20" height="5.26%"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T8m-CO-lHg">
-                                    <size key="itemSize" width="181" height="156"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="34" minimumInteritemSpacing="54" id="bof-bk-rQ3">
+                                    <size key="itemSize" width="54" height="34"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="coverCell" id="M7P-KK-SpZ" customClass="CoverCellContent" customModule="GoodNight" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="156"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="catalogCell" id="5xQ-09-a7P" userLabel="Catalog Cell" customClass="CatalogCell" customModule="GoodNight" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="181" height="156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="Label" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy4-FH-M4h">
-                                                    <frame key="frameInset" minX="34" minY="121" maxX="35" maxY="10"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdq-U0-ox4">
+                                                    <frame key="frameInset" minX="-1" maxX="-53" maxY="-20.5"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Azs-1B-rdJ">
-                                                    <frame key="frameInset" minX="34" minY="8" width="115" height="117"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="catalogLabel" destination="Pdq-U0-ox4" id="6Eh-sA-qTp"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GhY-dd-MCA">
+                                <frame key="frameInset" height="89.94%" maxY="51"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="58c-3K-GNv">
+                                    <size key="itemSize" width="180" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="coverCell" id="tuX-9C-ghF" userLabel="CoverCell" customClass="CoverCell" customModule="GoodNight" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fG4-yr-WFQ">
+                                                    <frame key="frameInset" minX="9" minY="8" maxX="8" maxY="9"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="coverImage" destination="Azs-1B-rdJ" id="MCn-MF-rLl"/>
-                                            <outlet property="coverLabel" destination="sy4-FH-M4h" id="YK6-v1-Kgy"/>
+                                            <outlet property="coverImage" destination="fG4-yr-WFQ" id="LLe-cd-gO6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -78,10 +82,30 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="睡眠" image="sleep" selectedImage="sleep" id="cPa-gy-q4n" userLabel="睡眠"/>
+                    <tabBarItem key="tabBarItem" selectedImage="sleep" systemItem="bookmarks" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="coverCollectionView" destination="Wie-Yu-8yw" id="CGb-Vi-by6"/>
+                        <outlet property="catalogCollectionView" destination="VDV-r3-mSY" id="nhX-1Y-5Hh"/>
+                        <outlet property="coverCollectionView" destination="GhY-dd-MCA" id="8DT-vz-V1S"/>
                     </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="584.79999999999995" y="1039.4302848575712"/>
+        </scene>
+        <!--Record-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController wantsFullScreenLayout="YES" id="8rJ-Kc-sve" userLabel="Record" customClass="RecordViewController" customModule="GoodNight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" selectedImage="sleep" systemItem="featured" id="cPa-gy-q4n" userLabel="睡眠"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,7 +114,7 @@
         <!--Friends-->
         <scene sceneID="2xc-4S-nbY">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="Amn-Xe-jrd" userLabel="Friends" customClass="ShoppingViewController" customModule="GoodNight" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="Amn-Xe-jrd" userLabel="Friends" customClass="FriendsViewController" customModule="GoodNight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jSb-uT-1CR"/>
                         <viewControllerLayoutGuide type="bottom" id="nVC-Bc-7oK"/>
@@ -100,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="好友" image="shopping" selectedImage="shopping" id="Tbo-gF-Vcb"/>
+                    <tabBarItem key="tabBarItem" selectedImage="shopping" systemItem="search" id="Tbo-gF-Vcb" userLabel="好友"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzj-rv-mrk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,7 +150,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我" image="record" selectedImage="record" id="xc2-CC-Jac"/>
+                    <tabBarItem key="tabBarItem" selectedImage="record" systemItem="contacts" id="xc2-CC-Jac" userLabel="自己"/>
                     <connections>
                         <outlet property="webView" destination="dcz-ai-xah" id="3p3-LC-zyZ"/>
                     </connections>
@@ -144,10 +168,16 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.17847856479999999" green="0.70871113990000001" blue="0.0049000949549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.079069502651691437" green="0.8108096718788147" blue="0.33751934766769409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Amn-Xe-jrd" kind="relationship" relationship="viewControllers" id="XA0-H1-Zlh"/>
                         <segue destination="BDn-6V-XJb" kind="relationship" relationship="viewControllers" id="FC0-Wi-mK0"/>
                     </connections>

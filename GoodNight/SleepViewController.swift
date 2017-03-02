@@ -37,9 +37,11 @@ class SleepViewController: UIViewController, UICollectionViewDataSource, UIColle
         // 创建
         scrollLabaleView = UIScrollView.init(frame: self.view.bounds) // UIScreen.main.bounds
         // 背景色
-        scrollLabaleView?.backgroundColor = UIColor.green
+        scrollLabaleView?.backgroundColor = UIColor.darkGray
         // x , y , width , height
         scrollLabaleView?.frame = CGRect(x: 0, y: 0, width: screenWidth, height: statusBarHeight + scrollLabelHeight)
+        //
+        scrollLabaleView?.contentSize = CGSize(width: 420, height:scrollLabelHeight)
         // ScrollView偏移量
         // scrollLabaleView?.contentOffset = CGPoint(x:screenWidth, y:0)
         // 是否按页滚动
@@ -54,48 +56,48 @@ class SleepViewController: UIViewController, UICollectionViewDataSource, UIColle
         scrollLabaleView?.delegate = self
         
         let label = UILabel(frame: (scrollLabaleView?.bounds)!)
-        label.frame = CGRect(x: 0, y: 22, width: 60, height: scrollLabelHeight)
+        label.frame = CGRect(x: 10, y: 22, width: 60, height: scrollLabelHeight)
         label.text = "轻音乐"
         label.textAlignment = NSTextAlignment.center
-        label.textColor = UIColor.blue
+        label.textColor = UIColor.lightGray
         // label.font = UIFont.systemFontOfSize(23)
         scrollLabaleView?.addSubview(label)
         
         
         let label2 = UILabel(frame: (scrollLabaleView?.bounds)!)
-        label2.frame = CGRect(x: 70, y: 22, width: 60, height: scrollLabelHeight)
+        label2.frame = CGRect(x: 80, y: 22, width: 60, height: scrollLabelHeight)
         label2.text = "大自然"
         label2.textAlignment = NSTextAlignment.center
-        label2.textColor = UIColor.blue
+        label2.textColor = UIColor.lightGray
         scrollLabaleView?.addSubview(label2)
         
         let label3 = UILabel(frame: (scrollLabaleView?.bounds)!)
-        label3.frame = CGRect(x: 140, y: 22, width: 60, height: scrollLabelHeight)
+        label3.frame = CGRect(x: 150, y: 22, width: 60, height: scrollLabelHeight)
         label3.text = "歌曲"
         label3.font = UIFont.systemFont(ofSize: 22)
         label3.textAlignment = NSTextAlignment.center
-        label3.textColor = UIColor.blue
+        label3.textColor = UIColor.lightGray
         scrollLabaleView?.addSubview(label3)
         
         let label4 = UILabel(frame: (scrollLabaleView?.bounds)!)
-        label4.frame = CGRect(x: 180, y: 22, width: 60, height: scrollLabelHeight)
+        label4.frame = CGRect(x: 220, y: 22, width: 60, height: scrollLabelHeight)
         label4.text = "诵读"
         label4.textAlignment = NSTextAlignment.center
-        label4.textColor = UIColor.blue
+        label4.textColor = UIColor.lightGray
         scrollLabaleView?.addSubview(label4)
         
         let label5 = UILabel(frame: (scrollLabaleView?.bounds)!)
-        label5.frame = CGRect(x: 230, y: 22, width: 60, height: scrollLabelHeight)
+        label5.frame = CGRect(x: 290, y: 22, width: 60, height: scrollLabelHeight)
         label5.text = "电台"
         label5.textAlignment = NSTextAlignment.center
-        label5.textColor = UIColor.blue
+        label5.textColor = UIColor.lightGray
         scrollLabaleView?.addSubview(label5)
         
         let label6 = UILabel(frame: (scrollLabaleView?.bounds)!)
-        label6.frame = CGRect(x: 280, y: 22, width: 60, height: scrollLabelHeight)
+        label6.frame = CGRect(x: 360, y: 22, width: 60, height: scrollLabelHeight)
         label6.text = "英语"
         label6.textAlignment = NSTextAlignment.center
-        label6.textColor = UIColor.blue
+        label6.textColor = UIColor.lightGray
         scrollLabaleView?.addSubview(label6)
         
         // 插入

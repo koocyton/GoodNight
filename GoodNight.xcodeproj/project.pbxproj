@@ -20,7 +20,6 @@
 		BACF29EE1E1691A900E28D42 /* GoodNightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29ED1E1691A900E28D42 /* GoodNightTests.swift */; };
 		BACF29F91E1691A900E28D42 /* GoodNightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29F81E1691A900E28D42 /* GoodNightUITests.swift */; };
 		BAD4AF6D1E2DAFBD007C297A /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD4AF6C1E2DAFBD007C297A /* FriendsViewController.swift */; };
-		BAF468AA1E5F041E00F95311 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = BAF468A91E5F041E00F95311 /* style.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		BACF29F81E1691A900E28D42 /* GoodNightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodNightUITests.swift; sourceTree = "<group>"; };
 		BACF29FA1E1691A900E28D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAD4AF6C1E2DAFBD007C297A /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		BAF468A91E5F041E00F95311 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				BA99071D1E5D5CC600631F2C /* PersonView.html */,
-				BAF468A91E5F041E00F95311 /* style.css */,
 			);
 			path = webview;
 			sourceTree = "<group>";
@@ -273,7 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1AD46D1E18167B00E50ADB /* autobuild.py in Resources */,
-				BAF468AA1E5F041E00F95311 /* style.css in Resources */,
 				BACF29E31E1691A900E28D42 /* LaunchScreen.storyboard in Resources */,
 				BA1AD46E1E18167B00E50ADB /* exportOptions.plist in Resources */,
 				BACF29E01E1691A900E28D42 /* Assets.xcassets in Resources */,

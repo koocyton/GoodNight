@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sleep-->
+        <!--Channel-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="9pv-A4-QxB" userLabel="Sleep" customClass="SleepViewController" customModule="GoodNight" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="9pv-A4-QxB" userLabel="Channel" customClass="ChannelViewController" customModule="GoodNight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>

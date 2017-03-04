@@ -64,10 +64,10 @@ class ChannelMenuView : UIScrollView {
         }
         
         // 插入下划线
-        let hrView = UIView(frame: (self.layer.bounds))
+        /*let hrView = UIView(frame: (self.layer.bounds))
         hrView.frame = CGRect(x: 0, y: statusBarHeight + scrollLabelHeight - 1, width: screenWidth, height: 1)
         hrView.layer.backgroundColor = UIColor.gray.cgColor
-        self.addSubview(hrView)
+        self.addSubview(hrView)*/
     }
     
     required init?(coder aDecoder: NSCoder) {

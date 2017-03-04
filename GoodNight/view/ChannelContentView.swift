@@ -17,21 +17,22 @@ let scrollLabelWidth : CGFloat = CGFloat(80)
 let channelModel : ChannelModel = ChannelModel()
 // 频道内容区高度
 let channelContentHeight : CGFloat = screenHeight - statusBarHeight - scrollLabelHeight - tabBarHeight
+// 频道数量
+let channelCount : Int = channelModel.data.count
+// Cell 高度
+let cellHeight : CGFloat = CGFloat(150)
 
 class ChannelContentView : UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        // 频道数量
-        let channelCount : Int = channelModel.data.count
 
         // x , y , width , height
         self.frame = CGRect(x: 0, y: statusBarHeight + scrollLabelHeight, width: screenWidth, height: channelContentHeight)
         // 滑动区的内容区的大小
         self.contentSize = CGSize(width: CGFloat(channelCount) * screenWidth , height:channelContentHeight)
         // 背景色
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor.darkGray
         // 是否按页滚动
         self.isPagingEnabled = true
         // 水平滚动，而不显示滚动条
@@ -40,24 +41,12 @@ class ChannelContentView : UIScrollView {
         self.showsVerticalScrollIndicator = true
         // self.delegate = self
         
+        
+        let singleChannelLayout = SingleChannelLayout()
         var ii : Int = 0
-        let layout = SingleMusicLayout()
         for var channel in channelModel.data {
-
-            //let layout = UICollectionViewFlowLayout()
-            //滚动方向
-            //layout.scrollDirection = UICollectionViewScrollDirection.vertical
-            //设置所有cell的size
-            //layout.itemSize = CGSize(width:CGFloat(100), height: screenWidth )
-            //上下间隔
-            //layout.minimumLineSpacing = 0
-            //左右间隔
-            //layout.minimumInteritemSpacing = 0
-
-
-            let singleChannelView = UICollectionView.init(frame: self.layer.bounds, collectionViewLayout: layout)
+            let singleChannelView = SingleChannelView.init(frame: self.layer.bounds, collectionViewLayout: singleChannelLayout)
             singleChannelView.frame = CGRect(x: CGFloat(ii) * screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
-            singleChannelView.backgroundColor = UIColor.white
 
             self.addSubview(singleChannelView)
             ii += 1
@@ -69,16 +58,14 @@ class ChannelContentView : UIScrollView {
     }
 }
 
-class SingleMusicLayout : UICollectionViewFlowLayout {
-
-    var itemH: CGFloat = 100
+class SingleChannelLayout : UICollectionViewFlowLayout {
 
     override init() {
         super.init();
         //滚动方向
         self.scrollDirection = UICollectionViewScrollDirection.vertical
         //设置所有cell的size
-        self.itemSize = CGSize(width:screenWidth, height: itemH )
+        self.itemSize = CGSize(width:screenWidth, height: cellHeight )
         //上下间隔
         self.minimumLineSpacing = 0
         //左右间隔
@@ -90,80 +77,69 @@ class SingleMusicLayout : UICollectionViewFlowLayout {
     }
 }
 
-/*
-class SingleChannelView: UICollectionView {
+
+class SingleChannelView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
  
-    override init(frame: CGRect, layout: UICollectionViewLayout) {
+    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
 
         super.init(frame: frame, collectionViewLayout: layout)
-        
-        let layout = UICollectionViewFlowLayout()
-        //滚动方向
-        layout.scrollDirection = UICollectionViewScrollDirection.vertical
-        //设置所有cell的size
-        layout.itemSize = CGSize(width:CGFloat(100), height: screenWidth )
-        //上下间隔
-        layout.minimumLineSpacing = 0
-        //左右间隔
-        layout.minimumInteritemSpacing = 0
         
         // self.init(frame: self.layer.bounds, collectionViewLayout: layout)
         self.frame = CGRect(x: screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
         self.backgroundColor = UIColor.white
         // delegate
-        //self.layer.delegate = self
-        //self.layer.data = self
+        self.delegate = self
+        self.dataSource = self
         //注册一个cell
-        // self.register(HotCell.self, forCellWithReuseIdentifier:"HotCell")
-        //self.backgroundColor = UIColor.white
+        self.register(HotCell.self, forCellWithReuseIdentifier:"HotCell")
     }
-}
-*/
-
-    /*
+    
     // 有多少个 cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 16;
+        return channelCount;
     }
     
     // 每个 cell 的处理
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // default cover
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotCell", for: indexPath) as! HotCell
-        cell.frame = CGRect(x: (indexPath.row % 2) * Int(screenWidth / 2), y: Int(indexPath.row / 2) * Int(screenWidth / 2), width: Int(screenWidth / 2), height: Int(screenWidth / 2))
+        cell.frame = CGRect(x: 0, y: indexPath.row * Int(cellHeight), width: Int(screenWidth), height: Int(cellHeight))
+
         // cell.layer.borderColor = UIColor.gray.cgColor
         // cell.layer.borderWidth = 1
-        cell.label.text = "aaaa"
         
         return cell
-    }
- */
-
-
-/*
-class HotCell: UICollectionViewCell {
-    
-    var label = UILabel()
-    
-    var image = UIImageView()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        let cellWidth = self.layer.bounds.size.width
-        
-        label = UILabel.init(frame: self.bounds)
-        self.addSubview(label)
-        
-        image = UIImageView.init(frame: self.layer.bounds)
-        image.frame = CGRect(x: 20, y: 20, width: cellWidth - 40, height: cellWidth - 40)
-        image.image = UIImage(named: "normal")
-        self.addSubview(image)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-*/
+
+
+class HotCell: UICollectionViewCell {
+
+    var image = UIImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        let imageHeight = cellHeight - 20
+        
+        image = UIImageView.init(frame: self.layer.bounds)
+        image.frame = CGRect(x: 10, y: 10, width: imageHeight, height: imageHeight)
+        image.image = UIImage(named: "normal")
+        self.addSubview(image)
+        
+        // 插入下划线
+        let hrView = UIView(frame: (self.layer.bounds))
+        hrView.frame = CGRect(x: 0, y: self.layer.bounds.size.height, width: screenWidth, height: 1)
+        hrView.layer.backgroundColor = UIColor.clear.cgColor
+        self.addSubview(hrView)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+

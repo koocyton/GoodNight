@@ -9,9 +9,12 @@
 import UIKit
 
 class ChannelViewController: UIViewController {
-
+    
     // 顶部滑动菜单
-    let channelMenuView :ChannelMenuView = ChannelMenuView()
+    let channelMenuView : ChannelMenuView = ChannelMenuView()
+
+    // 频道内容
+    let channelContentView : ChannelContentView = ChannelContentView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,9 @@ class ChannelViewController: UIViewController {
 
         // 插入顶部菜单的面板
         self.view.addSubview(channelMenuView)
+
+        // 插入频道内容
+        self.view.addSubview(channelContentView)
     }
 
     override func didReceiveMemoryWarning() {

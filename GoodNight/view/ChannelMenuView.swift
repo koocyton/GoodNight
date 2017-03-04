@@ -21,7 +21,7 @@ class ChannelMenuView : UIScrollView {
     // 滑动标签页高度
     let scrollLabelHeight : CGFloat = CGFloat(39)
     // 菜单单个 Label 的宽度
-    let scrollLabelWidth : CGFloat = CGFloat(70)
+    let scrollLabelWidth : CGFloat = CGFloat(80)
     // 菜单数据
     let channelModel : ChannelModel = ChannelModel()
 
@@ -31,7 +31,7 @@ class ChannelMenuView : UIScrollView {
         // 频道数量
         let channelCount : Int = channelModel.data.count
         // 创建
-        // scrollLabaleView = UIScrollView.init(frame: self.view.bounds) // UIScreen.main.bounds
+        // self = UIScrollView.init(frame: self.view.bounds) // UIScreen.main.bounds
         // 背景色
         self.backgroundColor = UIColor.darkGray
         // x , y , width , height
@@ -53,32 +53,21 @@ class ChannelMenuView : UIScrollView {
             // init Label View
             let channelLabel : ChannelMenuLabel = ChannelMenuLabel()
             // init Frame
-            channelLabel.frame = CGRect(x: CGFloat(ii) * scrollLabelWidth, y: 22, width: 60, height: scrollLabelHeight)
+            channelLabel.frame = CGRect(x: CGFloat(ii) * scrollLabelWidth, y: 22, width: scrollLabelWidth, height: scrollLabelHeight)
             channelLabel.text = "大自然"
+            if ii==0 {
+                channelLabel.textColor = UIColor.white
+                channelLabel.font = UIFont.systemFont(ofSize: 20)
+            }
             self.addSubview(channelLabel)
             ii += 1
         }
-        // var channelLabelData : AnyArray
-        /*
-        for channelLabelData in channelModel.data {
-            let channelLabel : ChannelMenuLabel = ChannelMenuLabel()
-            channelLabel.frame = CGRect(x: CGFloat(ii) * scrollLabelWidth, y: 22, width: 60, height: scrollLabelHeight)
-            channelLabel.text = ""
-            self.addSubview(channelLabel)
-        }
- */
-        // self.layer.borderWidth = 1
-        // self.layer.borderColor = UIColor.red.cgColor
-        // self.delegate = self
-
-        // 插入
-        // self.view.addSubview(scrollLabaleView!)
         
         // 插入下划线
-        let hr = UIView(frame: (self.layer.bounds))
-        hr.frame = CGRect(x: 0, y: statusBarHeight + scrollLabelHeight - 1, width: screenWidth, height: 1)
-        hr.layer.backgroundColor = UIColor.gray.cgColor
-        self.addSubview(hr)
+        let hrView = UIView(frame: (self.layer.bounds))
+        hrView.frame = CGRect(x: 0, y: statusBarHeight + scrollLabelHeight - 1, width: screenWidth, height: 1)
+        hrView.layer.backgroundColor = UIColor.gray.cgColor
+        self.addSubview(hrView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -95,8 +84,12 @@ class ChannelMenuLabel: UILabel {
         // let label6 = UILabel(frame: (scrollLabaleView?.bounds)!)
         // self.frame = CGRect(x: 0, y: 22, width: 60, height: scrollLabelHeight)
         // self.text = ""
+        // self.layer.borderColor = UIColor.red.cgColor
+        // self.layer.borderWidth = 1
         self.textAlignment = NSTextAlignment.center
         self.textColor = UIColor.lightGray
+        //self.shadowColor = UIColor.gray  //灰色阴影
+        //self.shadowOffset = CGSize(width:1.5, height:1.5)  //阴影的偏移量
         // scrollLabaleView?.addSubview(label6)
     }
     

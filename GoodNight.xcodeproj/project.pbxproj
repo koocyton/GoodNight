@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA1AD46D1E18167B00E50ADB /* autobuild.py in Resources */ = {isa = PBXBuildFile; fileRef = BA1AD46B1E18167B00E50ADB /* autobuild.py */; };
 		BA1AD46E1E18167B00E50ADB /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1AD46C1E18167B00E50ADB /* exportOptions.plist */; };
+		BA22A07F1E6BAB4400DD9213 /* SwiftyJson.h in Sources */ = {isa = PBXBuildFile; fileRef = BA22A07E1E6BAB1600DD9213 /* SwiftyJson.h */; };
 		BA350A351E690FA6005FA6BA /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A311E690FA6005FA6BA /* FriendsViewController.swift */; };
 		BA350A361E690FA6005FA6BA /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A321E690FA6005FA6BA /* PersonViewController.swift */; };
 		BA350A371E690FA6005FA6BA /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A331E690FA6005FA6BA /* RecordViewController.swift */; };
@@ -16,7 +17,9 @@
 		BA350A3B1E6911B9005FA6BA /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A3A1E6911B9005FA6BA /* ChannelModel.swift */; };
 		BA350A3F1E6911C2005FA6BA /* ChannelContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A3D1E6911C2005FA6BA /* ChannelContentView.swift */; };
 		BA350A401E6911C2005FA6BA /* ChannelMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A3E1E6911C2005FA6BA /* ChannelMenuView.swift */; };
+		BA8DCF361E6BAFA20082DFCD /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8DCF351E6BAFA20082DFCD /* Package.swift */; };
 		BA99071F1E5D5CC600631F2C /* PersonView.html in Resources */ = {isa = PBXBuildFile; fileRef = BA99071D1E5D5CC600631F2C /* PersonView.html */; };
+		BAB78A111E6B088100B41350 /* SwiftyJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB78A101E6B088100B41350 /* SwiftyJson.swift */; };
 		BACF29D71E1691A900E28D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29D61E1691A900E28D42 /* AppDelegate.swift */; };
 		BACF29DE1E1691A900E28D42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACF29DC1E1691A900E28D42 /* Main.storyboard */; };
 		BACF29E01E1691A900E28D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BACF29DF1E1691A900E28D42 /* Assets.xcassets */; };
@@ -45,6 +48,7 @@
 /* Begin PBXFileReference section */
 		BA1AD46B1E18167B00E50ADB /* autobuild.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = autobuild.py; sourceTree = "<group>"; };
 		BA1AD46C1E18167B00E50ADB /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
+		BA22A07E1E6BAB1600DD9213 /* SwiftyJson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyJson.h; sourceTree = "<group>"; };
 		BA350A311E690FA6005FA6BA /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		BA350A321E690FA6005FA6BA /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		BA350A331E690FA6005FA6BA /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +56,9 @@
 		BA350A3A1E6911B9005FA6BA /* ChannelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 		BA350A3D1E6911C2005FA6BA /* ChannelContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelContentView.swift; sourceTree = "<group>"; };
 		BA350A3E1E6911C2005FA6BA /* ChannelMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelMenuView.swift; sourceTree = "<group>"; };
+		BA8DCF351E6BAFA20082DFCD /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		BA99071D1E5D5CC600631F2C /* PersonView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PersonView.html; sourceTree = "<group>"; };
+		BAB78A101E6B088100B41350 /* SwiftyJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJson.swift; sourceTree = "<group>"; };
 		BACF29D31E1691A900E28D42 /* GoodNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BACF29D61E1691A900E28D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BACF29DD1E1691A900E28D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -137,6 +143,15 @@
 			path = webview;
 			sourceTree = "<group>";
 		};
+		BAB78A0F1E6B088100B41350 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				BA22A07E1E6BAB1600DD9213 /* SwiftyJson.h */,
+				BAB78A101E6B088100B41350 /* SwiftyJson.swift */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		BACF29CA1E1691A800E28D42 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +176,7 @@
 		BACF29D51E1691A900E28D42 /* GoodNight */ = {
 			isa = PBXGroup;
 			children = (
+				BAB78A0F1E6B088100B41350 /* lib */,
 				BA350A3C1E6911C2005FA6BA /* view */,
 				BA350A391E6911B9005FA6BA /* model */,
 				BA350A301E690FA6005FA6BA /* controller */,
@@ -170,6 +186,7 @@
 				BACF29DF1E1691A900E28D42 /* Assets.xcassets */,
 				BACF29E11E1691A900E28D42 /* LaunchScreen.storyboard */,
 				BACF29E41E1691A900E28D42 /* Info.plist */,
+				BA8DCF351E6BAFA20082DFCD /* Package.swift */,
 			);
 			path = GoodNight;
 			sourceTree = "<group>";
@@ -332,13 +349,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA22A07F1E6BAB4400DD9213 /* SwiftyJson.h in Sources */,
 				BACF29D71E1691A900E28D42 /* AppDelegate.swift in Sources */,
 				BA350A3F1E6911C2005FA6BA /* ChannelContentView.swift in Sources */,
 				BA350A401E6911C2005FA6BA /* ChannelMenuView.swift in Sources */,
 				BA350A3B1E6911B9005FA6BA /* ChannelModel.swift in Sources */,
+				BAB78A111E6B088100B41350 /* SwiftyJson.swift in Sources */,
 				BA350A371E690FA6005FA6BA /* RecordViewController.swift in Sources */,
 				BA350A351E690FA6005FA6BA /* FriendsViewController.swift in Sources */,
 				BA350A381E690FA6005FA6BA /* ChannelViewController.swift in Sources */,
+				BA8DCF361E6BAFA20082DFCD /* Package.swift in Sources */,
 				BA350A361E690FA6005FA6BA /* PersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

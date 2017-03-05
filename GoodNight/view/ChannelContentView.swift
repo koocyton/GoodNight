@@ -42,13 +42,26 @@ class ChannelContentView : UIScrollView {
         // self.delegate = self
         
         
-        let singleChannelLayout = SingleChannelLayout()
+        let layout = OneChannelLayout()
         var ii : Int = 0
-        for var channel in channelModel.data {
-            let singleChannelView = SingleChannelView.init(frame: self.layer.bounds, collectionViewLayout: singleChannelLayout)
-            singleChannelView.frame = CGRect(x: CGFloat(ii) * screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
+        for channel in channelModel.data {
+            
+            print(channel)
+            print(channel.value(forKey:"name") as! String)
+            print(channel.value(forKey:"name"))
+            print(channel.value(forKey:"content"))
+            print(channel.value(forKey:"content") as! AnyObject)
 
-            self.addSubview(singleChannelView)
+            
+            let cellData = channel.value(forKey:"content")
+            // print(cellData);
+            // 初始化
+            let oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: layout, cellData: channel as! Dictionary<String, Any>)
+            // 大小, 坐标
+            oneChannelView.frame = CGRect(x: CGFloat(ii) * screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
+            // oneChannelView.cellData = channel
+            // 添加到界面
+            self.addSubview(oneChannelView)
             ii += 1
         }
     }
@@ -58,7 +71,7 @@ class ChannelContentView : UIScrollView {
     }
 }
 
-class SingleChannelLayout : UICollectionViewFlowLayout {
+class OneChannelLayout : UICollectionViewFlowLayout {
 
     override init() {
         super.init();
@@ -78,12 +91,14 @@ class SingleChannelLayout : UICollectionViewFlowLayout {
 }
 
 
-class SingleChannelView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
+class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
  
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    let channel: Dictionary<String, Any>
 
+    init(frame: CGRect, layout: UICollectionViewLayout, cellData: Dictionary<String, Any>) {
+        channel = cellData
         super.init(frame: frame, collectionViewLayout: layout)
-        
+
         // self.init(frame: self.layer.bounds, collectionViewLayout: layout)
         self.frame = CGRect(x: screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
         self.backgroundColor = UIColor.white
@@ -96,7 +111,10 @@ class SingleChannelView: UICollectionView, UICollectionViewDataSource, UICollect
     
     // 有多少个 cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return channelCount;
+        // let aaa = (channel.values(forKey:"content") as! Array)
+        // print(channel.value("name"))
+        return channel.count
+        // return channel.count
     }
     
     // 每个 cell 的处理
@@ -132,10 +150,10 @@ class HotCell: UICollectionViewCell {
         self.addSubview(image)
         
         // 插入下划线
-        let hrView = UIView(frame: (self.layer.bounds))
-        hrView.frame = CGRect(x: 0, y: self.layer.bounds.size.height, width: screenWidth, height: 1)
-        hrView.layer.backgroundColor = UIColor.clear.cgColor
-        self.addSubview(hrView)
+        //let hrView = UIView(frame: (self.layer.bounds))
+        //hrView.frame = CGRect(x: 0, y: self.layer.bounds.size.height, width: screenWidth, height: 1)
+        //hrView.layer.backgroundColor = UIColor.clear.cgColor
+        //self.addSubview(hrView)
     }
     
     required init?(coder aDecoder: NSCoder) {

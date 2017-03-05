@@ -49,12 +49,13 @@ class ChannelMenuView : UIScrollView {
         // self.delegate = self
 
         var ii : Int = 0
-        for var channel in channelModel.data {
+        for channel in channelModel.data {
             // init Label View
             let channelLabel : ChannelMenuLabel = ChannelMenuLabel()
             // init Frame
             channelLabel.frame = CGRect(x: CGFloat(ii) * scrollLabelWidth, y: 22, width: scrollLabelWidth, height: scrollLabelHeight)
-            channelLabel.text = "大自然"
+            // print(channel.value(forKey:"name") as! String)
+            channelLabel.text = (channel.value(forKey:"name") as! String)
             if ii==0 {
                 channelLabel.textColor = UIColor.white
                 channelLabel.font = UIFont.systemFont(ofSize: 20)

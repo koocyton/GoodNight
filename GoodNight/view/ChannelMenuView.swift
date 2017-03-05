@@ -48,20 +48,18 @@ class ChannelMenuView : UIScrollView {
         self.showsVerticalScrollIndicator = false
         // self.delegate = self
 
-        var ii : Int = 0
-        for channel in channelModel.data {
+        // var ii : Int = 0
+        for ii in 0..<channelModel.data.count {
             // init Label View
             let channelLabel : ChannelMenuLabel = ChannelMenuLabel()
             // init Frame
             channelLabel.frame = CGRect(x: CGFloat(ii) * scrollLabelWidth, y: 22, width: scrollLabelWidth, height: scrollLabelHeight)
-            // print(channel.value(forKey:"name") as! String)
-            channelLabel.text = (channel.value(forKey:"name") as! String)
+            channelLabel.text = "\(channelModel.data[ii]["name"])"
             if ii==0 {
                 channelLabel.textColor = UIColor.white
                 channelLabel.font = UIFont.systemFont(ofSize: 20)
             }
             self.addSubview(channelLabel)
-            ii += 1
         }
         
         // 插入下划线

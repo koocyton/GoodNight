@@ -43,26 +43,16 @@ class ChannelContentView : UIScrollView {
         
         
         let layout = OneChannelLayout()
-        var ii : Int = 0
-        for channel in channelModel.data {
-            
-            print(channel)
-            print(channel.value(forKey:"name") as! String)
-            print(channel.value(forKey:"name"))
-            print(channel.value(forKey:"content"))
-            print(channel.value(forKey:"content") as! AnyObject)
-
-            
-            let cellData = channel.value(forKey:"content")
-            // print(cellData);
+        // var ii : Int = 0
+        // for channel in channelModel.data {
+        for ii in 0..<channelModel.data.count {
             // 初始化
-            let oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: layout, cellData: channel as! Dictionary<String, Any>)
+            let oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: layout, cellData: channelModel.data[ii])
             // 大小, 坐标
             oneChannelView.frame = CGRect(x: CGFloat(ii) * screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
             // oneChannelView.cellData = channel
             // 添加到界面
             self.addSubview(oneChannelView)
-            ii += 1
         }
     }
     
@@ -93,9 +83,9 @@ class OneChannelLayout : UICollectionViewFlowLayout {
 
 class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
  
-    let channel: Dictionary<String, Any>
+    let channel: JSON
 
-    init(frame: CGRect, layout: UICollectionViewLayout, cellData: Dictionary<String, Any>) {
+    init(frame: CGRect, layout: UICollectionViewLayout, cellData: JSON) {
         channel = cellData
         super.init(frame: frame, collectionViewLayout: layout)
 
@@ -116,7 +106,7 @@ class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollection
         return channel.count
         // return channel.count
     }
-    
+
     // 每个 cell 的处理
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // default cover

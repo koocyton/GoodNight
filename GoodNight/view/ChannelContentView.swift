@@ -47,9 +47,11 @@ class ChannelContentView : UIScrollView {
         // for channel in channelModel.data {
         for ii in 0..<channelModel.data.count {
             // 初始化
-            let oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: layout, cellData: channelModel.data[ii])
+            var oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: layout, cellData: channelModel.data[ii]["content"])
             // 大小, 坐标
             oneChannelView.frame = CGRect(x: CGFloat(ii) * screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
+            oneChannelView.delegate = oneChannelView
+            oneChannelView.dataSource = oneChannelView
             // oneChannelView.cellData = channel
             // 添加到界面
             self.addSubview(oneChannelView)
@@ -83,10 +85,12 @@ class OneChannelLayout : UICollectionViewFlowLayout {
 
 class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
  
-    let channel: JSON
+    var channel: JSON
 
     init(frame: CGRect, layout: UICollectionViewLayout, cellData: JSON) {
-        channel = cellData
+
+        self.channel = cellData
+
         super.init(frame: frame, collectionViewLayout: layout)
 
         // self.init(frame: self.layer.bounds, collectionViewLayout: layout)
@@ -102,8 +106,9 @@ class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollection
     // 有多少个 cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // let aaa = (channel.values(forKey:"content") as! Array)
-        // print(channel.value("name"))
-        return channel.count
+        print(channel.count)
+        print("  >>>>>>>>>>  ")
+        return self.channel.count
         // return channel.count
     }
 
@@ -127,23 +132,42 @@ class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollection
 
 class HotCell: UICollectionViewCell {
 
-    var image = UIImageView()
+    var cover = UIImageView()
+    
+    var title = UILabel()
+    
+    var intro = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         let imageHeight = cellHeight - 20
         
-        image = UIImageView.init(frame: self.layer.bounds)
-        image.frame = CGRect(x: 10, y: 10, width: imageHeight, height: imageHeight)
-        image.image = UIImage(named: "normal")
-        self.addSubview(image)
+        // 封面图
+        cover = UIImageView.init(frame: self.layer.bounds)
+        cover.frame = CGRect(x: 10, y: 10, width: imageHeight, height: imageHeight)
+        cover.image = UIImage(named: "normal")
+        self.addSubview(cover)
+        
+        // 标题
+        title.frame = CGRect(x: imageHeight + 20, y: 10, width: screenWidth - imageHeight - 30, height: 20)
+        title.text = "标题"
+        // title.textAlignment = NSTextAlignment.center
+        // title.textColor = UIColor.lightGray
+        self.addSubview(title)
+        
+        // 介绍
+        intro.frame = CGRect(x: imageHeight + 20, y: 30, width: screenWidth - imageHeight - 30, height: imageHeight)
+        intro.text = "这里放好听的歌的介绍"
+        intro.textAlignment = NSTextAlignment.center
+        intro.textColor = UIColor.lightGray
+        self.addSubview(intro)
         
         // 插入下划线
-        //let hrView = UIView(frame: (self.layer.bounds))
-        //hrView.frame = CGRect(x: 0, y: self.layer.bounds.size.height, width: screenWidth, height: 1)
-        //hrView.layer.backgroundColor = UIColor.clear.cgColor
-        //self.addSubview(hrView)
+        let hrView = UIView(frame: (self.layer.bounds))
+        hrView.frame = CGRect(x: 0, y: self.layer.bounds.size.height, width: screenWidth, height: 1)
+        hrView.layer.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 0.5).cgColor
+        self.addSubview(hrView)
     }
     
     required init?(coder aDecoder: NSCoder) {

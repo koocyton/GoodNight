@@ -12,17 +12,41 @@ class ChannelModel : AnyObject {
             "name" : "轻音乐",
             "content" : [
                 [
+                    "title" : "雪狼湖",
+                    "introduction" : "好听的歌",
                     "mp3" : "",
-                    "singer" : ""
+                    "singer" : "张学友"
                 ],
                 [
+                    "title" : "雪狼湖",
+                    "introduction" : "好听的歌",
                     "mp3" : "",
-                    "singer" : ""
+                    "singer" : "张学友"
                 ],
                 [
+                    "title" : "雪狼湖",
+                    "introduction" : "好听的歌",
                     "mp3" : "",
-                    "singer" : ""
+                    "singer" : "张学友"
                 ],
+                [
+                    "title" : "雪狼湖",
+                    "introduction" : "好听的歌",
+                    "mp3" : "",
+                    "singer" : "张学友"
+                ],
+                [
+                    "title" : "雪狼湖",
+                    "introduction" : "好听的歌",
+                    "mp3" : "",
+                    "singer" : "张学友"
+                ],
+                [
+                    "title" : "雪狼湖",
+                    "introduction" : "好听的歌",
+                    "mp3" : "",
+                    "singer" : "张学友"
+                ]
             ]
         ],
         [

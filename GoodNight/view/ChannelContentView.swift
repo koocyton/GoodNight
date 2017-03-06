@@ -37,21 +37,17 @@ class ChannelContentView : UIScrollView {
         self.isPagingEnabled = true
         // 水平滚动，而不显示滚动条
         self.alwaysBounceHorizontal = true
-        self.showsHorizontalScrollIndicator = true
-        self.showsVerticalScrollIndicator = true
+        self.showsHorizontalScrollIndicator = false
+        self.showsVerticalScrollIndicator = false
         // self.delegate = self
         
-        
-        let layout = OneChannelLayout()
-        // var ii : Int = 0
-        // for channel in channelModel.data {
         for ii in 0..<channelModel.data.count {
             // 初始化
-            var oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: layout, cellData: channelModel.data[ii]["content"])
+            let oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: OneChannelLayout(), index: ii)
             // 大小, 坐标
             oneChannelView.frame = CGRect(x: CGFloat(ii) * screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
-            oneChannelView.delegate = oneChannelView
-            oneChannelView.dataSource = oneChannelView
+            //oneChannelView.delegate = oneChannelView
+            //oneChannelView.dataSource = oneChannelView
             // oneChannelView.cellData = channel
             // 添加到界面
             self.addSubview(oneChannelView)
@@ -85,11 +81,11 @@ class OneChannelLayout : UICollectionViewFlowLayout {
 
 class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
  
-    var channel: JSON
+    let index: Int
 
-    init(frame: CGRect, layout: UICollectionViewLayout, cellData: JSON) {
+    init(frame: CGRect, layout: UICollectionViewLayout, index: Int) {
 
-        self.channel = cellData
+        self.index = index
 
         super.init(frame: frame, collectionViewLayout: layout)
 
@@ -105,11 +101,7 @@ class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollection
     
     // 有多少个 cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // let aaa = (channel.values(forKey:"content") as! Array)
-        print(channel.count)
-        print("  >>>>>>>>>>  ")
-        return self.channel.count
-        // return channel.count
+        return channelModel.data[index]["content"].count
     }
 
     // 每个 cell 的处理
@@ -117,10 +109,8 @@ class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollection
         // default cover
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotCell", for: indexPath) as! HotCell
         cell.frame = CGRect(x: 0, y: indexPath.row * Int(cellHeight), width: Int(screenWidth), height: Int(cellHeight))
-
         // cell.layer.borderColor = UIColor.gray.cgColor
         // cell.layer.borderWidth = 1
-        
         return cell
     }
     
@@ -150,7 +140,7 @@ class HotCell: UICollectionViewCell {
         self.addSubview(cover)
         
         // 标题
-        title.frame = CGRect(x: imageHeight + 20, y: 10, width: screenWidth - imageHeight - 30, height: 20)
+        title.frame = CGRect(x: imageHeight + 20 + 10, y: 10, width: screenWidth - imageHeight - 30, height: 20)
         title.text = "标题"
         // title.textAlignment = NSTextAlignment.center
         // title.textColor = UIColor.lightGray

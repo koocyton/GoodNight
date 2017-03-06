@@ -22,7 +22,7 @@ let channelCount : Int = channelModel.data.count
 // Cell 高度
 let cellHeight : CGFloat = CGFloat(150)
 
-class ChannelContentView : UIScrollView {
+class ChannelContentView : UIScrollView, UIScrollViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,7 +39,10 @@ class ChannelContentView : UIScrollView {
         self.alwaysBounceHorizontal = true
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
-        // self.delegate = self
+        
+        //
+        self.delegate = self
+        // self.selec = 0
         
         for ii in 0..<channelModel.data.count {
             // 初始化
@@ -51,6 +54,14 @@ class ChannelContentView : UIScrollView {
             // oneChannelView.cellData = channel
             // 添加到界面
             self.addSubview(oneChannelView)
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        for ii in 0..<channelCount {
+            let labelView : ChannelMenuLabel = ChannelMenuView().viewWithTag(100 + ii) as! ChannelMenuLabel
+            labelView.font = UIFont.systemFont(ofSize: 20)
+            labelView.layer.backgroundColor = UIColor.blue.cgColor
         }
     }
     
@@ -107,8 +118,11 @@ class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollection
     // 每个 cell 的处理
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // default cover
+        let ii : Int = indexPath.row
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotCell", for: indexPath) as! HotCell
         cell.frame = CGRect(x: 0, y: indexPath.row * Int(cellHeight), width: Int(screenWidth), height: Int(cellHeight))
+        cell.title.text = "\(channelModel.data[index]["content"][ii]["title"])"
+        cell.intro.text = "\(channelModel.data[index]["content"][ii]["introduction"])"
         // cell.layer.borderColor = UIColor.gray.cgColor
         // cell.layer.borderWidth = 1
         return cell
@@ -141,16 +155,17 @@ class HotCell: UICollectionViewCell {
         
         // 标题
         title.frame = CGRect(x: imageHeight + 20 + 10, y: 10, width: screenWidth - imageHeight - 30, height: 20)
-        title.text = "标题"
+        // title.text = "标题"
         // title.textAlignment = NSTextAlignment.center
         // title.textColor = UIColor.lightGray
         self.addSubview(title)
-        
+
         // 介绍
-        intro.frame = CGRect(x: imageHeight + 20, y: 30, width: screenWidth - imageHeight - 30, height: imageHeight)
-        intro.text = "这里放好听的歌的介绍"
-        intro.textAlignment = NSTextAlignment.center
+        intro.frame = CGRect(x: imageHeight + 30, y: 40, width: screenWidth - imageHeight - 40, height: imageHeight - 30)
+        // intro.text = "这里放好听的歌的介绍"
+        intro.textAlignment = NSTextAlignment.left
         intro.textColor = UIColor.lightGray
+        // intro.backgroundColor = UIColor.blue
         self.addSubview(intro)
         
         // 插入下划线
@@ -164,4 +179,3 @@ class HotCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

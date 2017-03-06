@@ -59,6 +59,9 @@ class ChannelMenuView : UIScrollView {
                 channelLabel.textColor = UIColor.white
                 channelLabel.font = UIFont.systemFont(ofSize: 20)
             }
+            //
+            channelLabel.tag = 100 + ii
+            //
             self.addSubview(channelLabel)
         }
         

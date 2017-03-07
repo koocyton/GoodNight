@@ -12,35 +12,35 @@ class ChannelModel : AnyObject {
             "name" : "轻音乐",
             "content" : [
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 0 0 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"
                 ],
                 
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 0 1 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"
                 ],
                 
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 0 2 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"
                 ],
                 
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 0 3 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"
                 ],
                 
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 0 4 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"
@@ -65,13 +65,13 @@ class ChannelModel : AnyObject {
             "name" : "大自然",
             "content" : [
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 1 0 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"
                 ],
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 1 1 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"
@@ -83,13 +83,19 @@ class ChannelModel : AnyObject {
             "name" : "歌曲",
             "content" : [
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 2 0 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"
                 ],
                 [
-                    "title" : "雪狼湖",
+                    "title" : "雪狼湖 2 1 ",
+                    "introduction" : "好听的歌",
+                    "mp3" : "",
+                    "singer" : "张学友"
+                ],
+                [
+                    "title" : "雪狼湖 2 2 ",
                     "introduction" : "好听的歌",
                     "mp3" : "",
                     "singer" : "张学友"

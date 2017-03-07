@@ -19,6 +19,7 @@
 		BA350A401E6911C2005FA6BA /* ChannelMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A3E1E6911C2005FA6BA /* ChannelMenuView.swift */; };
 		BA8DCF361E6BAFA20082DFCD /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8DCF351E6BAFA20082DFCD /* Package.swift */; };
 		BA99071F1E5D5CC600631F2C /* PersonView.html in Resources */ = {isa = PBXBuildFile; fileRef = BA99071D1E5D5CC600631F2C /* PersonView.html */; };
+		BAAE82241E6EBEB500EDDC91 /* ChannelAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE82231E6EBEB500EDDC91 /* ChannelAudioView.swift */; };
 		BAB78A111E6B088100B41350 /* SwiftyJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB78A101E6B088100B41350 /* SwiftyJson.swift */; };
 		BACF29D71E1691A900E28D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACF29D61E1691A900E28D42 /* AppDelegate.swift */; };
 		BACF29DE1E1691A900E28D42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACF29DC1E1691A900E28D42 /* Main.storyboard */; };
@@ -130,6 +131,7 @@
 		BA350A3E1E6911C2005FA6BA /* ChannelMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelMenuView.swift; sourceTree = "<group>"; };
 		BA8DCF351E6BAFA20082DFCD /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		BA99071D1E5D5CC600631F2C /* PersonView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PersonView.html; sourceTree = "<group>"; };
+		BAAE82231E6EBEB500EDDC91 /* ChannelAudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelAudioView.swift; sourceTree = "<group>"; };
 		BAB78A101E6B088100B41350 /* SwiftyJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJson.swift; sourceTree = "<group>"; };
 		BACF29D31E1691A900E28D42 /* GoodNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BACF29D61E1691A900E28D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		BA350A3C1E6911C2005FA6BA /* view */ = {
 			isa = PBXGroup;
 			children = (
+				BAAE82231E6EBEB500EDDC91 /* ChannelAudioView.swift */,
 				BA350A3D1E6911C2005FA6BA /* ChannelContentView.swift */,
 				BA350A3E1E6911C2005FA6BA /* ChannelMenuView.swift */,
 			);
@@ -501,6 +504,7 @@
 				BA22A07F1E6BAB4400DD9213 /* SwiftyJson.h in Sources */,
 				BACF29D71E1691A900E28D42 /* AppDelegate.swift in Sources */,
 				BA350A3F1E6911C2005FA6BA /* ChannelContentView.swift in Sources */,
+				BAAE82241E6EBEB500EDDC91 /* ChannelAudioView.swift in Sources */,
 				BA350A401E6911C2005FA6BA /* ChannelMenuView.swift in Sources */,
 				BA350A3B1E6911B9005FA6BA /* ChannelModel.swift in Sources */,
 				BAB78A111E6B088100B41350 /* SwiftyJson.swift in Sources */,

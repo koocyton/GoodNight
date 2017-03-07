@@ -8,22 +8,32 @@
 
 import UIKit
 
-class ChannelMenuView : UIScrollView {
+// 屏幕宽
+let screenWidth : CGFloat = UIScreen.main.bounds.size.width
+// 屏幕高
+let screenHeight : CGFloat = UIScreen.main.bounds.size.height
+// 顶部状态的高度
+let statusBarHeight : CGFloat = CGFloat(20)
+// 底部导航的高度
+let tabBarHeight : CGFloat =  CGFloat(49)
+// 滑动标签页高度
+let scrollLabelHeight : CGFloat = CGFloat(39)
+// 菜单单个 Label 的宽度
+let scrollLabelWidth : CGFloat = CGFloat(80)
+// 菜单数据
+let channelModel : ChannelModel = ChannelModel()
+// 频道内容区高度
+let channelContentHeight : CGFloat = screenHeight - statusBarHeight - scrollLabelHeight - tabBarHeight
+// 频道数量
+let channelCount : Int = channelModel.data.count
+// Cell 高度
+let cellHeight : CGFloat = CGFloat(150)
+// 当前频道的索引
+var currentChannelIndex : Int = 0
+// 音乐播放器高度
+var audioPlayHeight : CGFloat = CGFloat(55)
 
-    // 屏幕宽
-    let screenWidth : CGFloat = UIScreen.main.bounds.size.width
-    // 屏幕高
-    let screenHeight : CGFloat = UIScreen.main.bounds.size.height
-    // 顶部状态的高度
-    let statusBarHeight : CGFloat = CGFloat(20)
-    // 底部导航的高度
-    let tabBarHeight : CGFloat =  CGFloat(49)
-    // 滑动标签页高度
-    let scrollLabelHeight : CGFloat = CGFloat(39)
-    // 菜单单个 Label 的宽度
-    let scrollLabelWidth : CGFloat = CGFloat(80)
-    // 菜单数据
-    let channelModel : ChannelModel = ChannelModel()
+class ChannelMenuView : UIScrollView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +43,7 @@ class ChannelMenuView : UIScrollView {
         // 创建
         // self = UIScrollView.init(frame: self.view.bounds) // UIScreen.main.bounds
         // 背景色
-        self.backgroundColor = UIColor.darkGray
+        self.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7)
         // x , y , width , height
         self.frame = CGRect(x: 0, y: 0, width: screenWidth, height: statusBarHeight + scrollLabelHeight)
         // 滑动 label 的内容区的大小
@@ -47,6 +57,8 @@ class ChannelMenuView : UIScrollView {
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         // self.delegate = self
+        // tag
+        self.tag = 110
 
         // var ii : Int = 0
         for ii in 0..<channelModel.data.count {
@@ -60,7 +72,7 @@ class ChannelMenuView : UIScrollView {
                 channelLabel.font = UIFont.systemFont(ofSize: 20)
             }
             //
-            channelLabel.tag = 100 + ii
+            channelLabel.tag = 1000 + ii
             //
             self.addSubview(channelLabel)
         }
@@ -88,9 +100,9 @@ class ChannelMenuLabel: UILabel {
         // self.text = ""
         // self.layer.borderColor = UIColor.red.cgColor
         // self.layer.borderWidth = 1
-        self.font = UIFont.systemFont(ofSize: 17)
+        self.font = UIFont.systemFont(ofSize: 15)
         self.textAlignment = NSTextAlignment.center
-        self.textColor = UIColor.lightGray
+        self.textColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
         //self.shadowColor = UIColor.gray  //灰色阴影
         //self.shadowOffset = CGSize(width:1.5, height:1.5)  //阴影的偏移量
         // scrollLabaleView?.addSubview(label6)

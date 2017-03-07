@@ -1,29 +1,6 @@
 
 import UIKit
 
-// 屏幕宽
-let screenWidth : CGFloat = UIScreen.main.bounds.size.width
-// 屏幕高
-let screenHeight : CGFloat = UIScreen.main.bounds.size.height
-// 顶部状态的高度
-let statusBarHeight : CGFloat = CGFloat(20)
-// 底部导航的高度
-let tabBarHeight : CGFloat =  CGFloat(49)
-// 滑动标签页高度
-let scrollLabelHeight : CGFloat = CGFloat(39)
-// 菜单单个 Label 的宽度
-let scrollLabelWidth : CGFloat = CGFloat(80)
-// 菜单数据
-let channelModel : ChannelModel = ChannelModel()
-// 频道内容区高度
-let channelContentHeight : CGFloat = screenHeight - statusBarHeight - scrollLabelHeight - tabBarHeight
-// 频道数量
-let channelCount : Int = channelModel.data.count
-// Cell 高度
-let cellHeight : CGFloat = CGFloat(150)
-//
-var currentChannelIndex : Int = 0
-
 class ChannelContentView : UIScrollView, UIScrollViewDelegate {
     
     override init(frame: CGRect) {
@@ -42,6 +19,7 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         
+        self.tag = 63
         //
         self.delegate = self
         // self.selec = 0
@@ -60,41 +38,55 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.x < 0 {
+            return
+        }
+        
+        if scrollView.contentOffset.x > screenWidth * CGFloat(channelCount - 1) {
+            return
+        }
 
         let offsetWidth : CGFloat = scrollView.contentOffset.x / screenWidth
         
         let offsetLeft : Int = Int(floor(offsetWidth))
         let offsetRight : Int = Int(ceil(offsetWidth))
         
-        let offsetRightSize : CGFloat = 17 + (offsetWidth - CGFloat(offsetLeft)) * 3
-        let offsetLeftSize : CGFloat = 17 + (CGFloat(offsetRight) - offsetWidth) * 3
+        let offsetRightSize : CGFloat = 15 + (offsetWidth - CGFloat(offsetLeft)) * 5
+        let offsetLeftSize : CGFloat = 15 + (CGFloat(offsetRight) - offsetWidth) * 5
         
-        let leftLabelView : ChannelMenuLabel = self.superview?.viewWithTag(100 + offsetLeft) as! ChannelMenuLabel
-        let rightLabelView : ChannelMenuLabel = self.superview?.viewWithTag(100 + offsetRight) as! ChannelMenuLabel
+        let offsetRightColor : CGFloat = (200 + 55 * (offsetWidth - CGFloat(offsetLeft))) / 255
+        let offsetLeftColor : CGFloat = (200 + 55 * (CGFloat(offsetRight) - offsetWidth)) / 255
+        
+        let leftLabelView : ChannelMenuLabel = self.superview?.viewWithTag(1000 + offsetLeft) as! ChannelMenuLabel
+        let rightLabelView : ChannelMenuLabel = self.superview?.viewWithTag(1000 + offsetRight) as! ChannelMenuLabel
         
         if offsetLeft != offsetRight {
-            
-            print(offsetLeft, offsetLeftSize, offsetRight, offsetRightSize)
-
             leftLabelView.font = UIFont.systemFont(ofSize: offsetLeftSize)
             rightLabelView.font = UIFont.systemFont(ofSize: offsetRightSize)
-        }
-        else {
             
+            leftLabelView.textColor = UIColor(red: offsetLeftColor, green: offsetLeftColor, blue: offsetLeftColor, alpha: 1)
+            rightLabelView.textColor = UIColor(red: offsetRightColor, green: offsetRightColor, blue: offsetRightColor, alpha: 1)
+            
+            // 判断标签是否不在显示区
+            // let channelMenuView : ChannelMenuView = self.superview?.viewWithTag(110) as! ChannelMenuView
+            // if channelMenuView.contentOffset.x
+        }
+        /*else {
             if currentChannelIndex < offsetRight {
-                leftLabelView.font = UIFont.systemFont(ofSize: 17)
-                leftLabelView.textColor = UIColor.lightGray
+                leftLabelView.font = UIFont.systemFont(ofSize: 15)
+                leftLabelView.textColor = UIColor.white
                 rightLabelView.font = UIFont.systemFont(ofSize: 20)
                 rightLabelView.textColor = UIColor.white
             }
-            
             if currentChannelIndex > offsetLeft {
                 leftLabelView.font = UIFont.systemFont(ofSize: 20)
                 leftLabelView.textColor = UIColor.white
-                rightLabelView.font = UIFont.systemFont(ofSize: 17)
-                rightLabelView.textColor = UIColor.lightGray
+                rightLabelView.font = UIFont.systemFont(ofSize: 15)
+                rightLabelView.textColor = UIColor.white
             }
-        }
+            currentChannelIndex += 1
+        }*/
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -145,6 +137,12 @@ class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollection
     // 有多少个 cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return channelModel.data[index]["content"].count
+    }
+    
+    // 点击 cell 的时候
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let channelAudioView : ChannelAudioView = self.superview?.superview?.viewWithTag(51) as! ChannelAudioView
+        channelAudioView.nohidd()
     }
 
     // 每个 cell 的处理

@@ -88,6 +88,7 @@ class ChannelMenuLabel: UILabel {
         // self.text = ""
         // self.layer.borderColor = UIColor.red.cgColor
         // self.layer.borderWidth = 1
+        self.font = UIFont.systemFont(ofSize: 17)
         self.textAlignment = NSTextAlignment.center
         self.textColor = UIColor.lightGray
         //self.shadowColor = UIColor.gray  //灰色阴影

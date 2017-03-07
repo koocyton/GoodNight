@@ -21,6 +21,8 @@ let channelContentHeight : CGFloat = screenHeight - statusBarHeight - scrollLabe
 let channelCount : Int = channelModel.data.count
 // Cell 高度
 let cellHeight : CGFloat = CGFloat(150)
+//
+var currentChannelIndex : Int = 0
 
 class ChannelContentView : UIScrollView, UIScrollViewDelegate {
     
@@ -43,7 +45,7 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
         //
         self.delegate = self
         // self.selec = 0
-        
+
         for ii in 0..<channelModel.data.count {
             // 初始化
             let oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: OneChannelLayout(), index: ii)
@@ -58,10 +60,40 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        for ii in 0..<channelCount {
-            let labelView : ChannelMenuLabel = ChannelMenuView().viewWithTag(100 + ii) as! ChannelMenuLabel
-            labelView.font = UIFont.systemFont(ofSize: 20)
-            labelView.layer.backgroundColor = UIColor.blue.cgColor
+
+        let offsetWidth : CGFloat = scrollView.contentOffset.x / screenWidth
+        
+        let offsetLeft : Int = Int(floor(offsetWidth))
+        let offsetRight : Int = Int(ceil(offsetWidth))
+        
+        let offsetRightSize : CGFloat = 17 + (offsetWidth - CGFloat(offsetLeft)) * 3
+        let offsetLeftSize : CGFloat = 17 + (CGFloat(offsetRight) - offsetWidth) * 3
+        
+        let leftLabelView : ChannelMenuLabel = self.superview?.viewWithTag(100 + offsetLeft) as! ChannelMenuLabel
+        let rightLabelView : ChannelMenuLabel = self.superview?.viewWithTag(100 + offsetRight) as! ChannelMenuLabel
+        
+        if offsetLeft != offsetRight {
+            
+            print(offsetLeft, offsetLeftSize, offsetRight, offsetRightSize)
+
+            leftLabelView.font = UIFont.systemFont(ofSize: offsetLeftSize)
+            rightLabelView.font = UIFont.systemFont(ofSize: offsetRightSize)
+        }
+        else {
+            
+            if currentChannelIndex < offsetRight {
+                leftLabelView.font = UIFont.systemFont(ofSize: 17)
+                leftLabelView.textColor = UIColor.lightGray
+                rightLabelView.font = UIFont.systemFont(ofSize: 20)
+                rightLabelView.textColor = UIColor.white
+            }
+            
+            if currentChannelIndex > offsetLeft {
+                leftLabelView.font = UIFont.systemFont(ofSize: 20)
+                leftLabelView.textColor = UIColor.white
+                rightLabelView.font = UIFont.systemFont(ofSize: 17)
+                rightLabelView.textColor = UIColor.lightGray
+            }
         }
     }
     

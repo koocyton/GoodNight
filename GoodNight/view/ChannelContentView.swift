@@ -47,21 +47,31 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
             return
         }
 
-        let offsetWidth : CGFloat = scrollView.contentOffset.x / screenWidth
+        // 宽度的倍数
+        let offsetWidthTimes : CGFloat = scrollView.contentOffset.x / screenWidth
         
-        let offsetLeft : Int = Int(floor(offsetWidth))
-        let offsetRight : Int = Int(ceil(offsetWidth))
+        // 当前滑动页面第几页
+        let offsetLeftTimes : Int = Int(floor(offsetWidthTimes))
+        // 当前滑动页右边是第几页
+        let offsetRightTimes : Int = Int(ceil(offsetWidthTimes))
         
-        let offsetRightSize : CGFloat = 15 + (offsetWidth - CGFloat(offsetLeft)) * 5
-        let offsetLeftSize : CGFloat = 15 + (CGFloat(offsetRight) - offsetWidth) * 5
+        // 当前页的 label 文字大小
+        let offsetLeftSize : CGFloat = 15 + (CGFloat(offsetRightTimes) - offsetWidthTimes) * 5
+        // 当前页右侧的 label 文字大小
+        let offsetRightSize : CGFloat = 15 + (offsetWidthTimes - CGFloat(offsetLeftTimes)) * 5
         
-        let offsetRightColor : CGFloat = (200 + 55 * (offsetWidth - CGFloat(offsetLeft))) / 255
-        let offsetLeftColor : CGFloat = (200 + 55 * (CGFloat(offsetRight) - offsetWidth)) / 255
+        // 当前页的 label 文字颜色
+        let offsetLeftColor : CGFloat = (200 + 55 * (CGFloat(offsetRightTimes) - offsetWidthTimes)) / 255
+        // 当前页右侧的 label 文字颜色
+        let offsetRightColor : CGFloat = (200 + 55 * (offsetWidthTimes - CGFloat(offsetLeftTimes))) / 255
         
-        let leftLabelView : ChannelMenuLabel = self.superview?.viewWithTag(1000 + offsetLeft) as! ChannelMenuLabel
-        let rightLabelView : ChannelMenuLabel = self.superview?.viewWithTag(1000 + offsetRight) as! ChannelMenuLabel
-        
-        if offsetLeft != offsetRight {
+        // 左边(当前)页面
+        let leftLabelView : ChannelMenuLabel = self.superview?.viewWithTag(1000 + offsetLeftTimes) as! ChannelMenuLabel
+        // 右边页
+        let rightLabelView : ChannelMenuLabel = self.superview?.viewWithTag(1000 + offsetRightTimes) as! ChannelMenuLabel
+
+        if offsetLeftTimes != offsetRightTimes {
+
             leftLabelView.font = UIFont.systemFont(ofSize: offsetLeftSize)
             rightLabelView.font = UIFont.systemFont(ofSize: offsetRightSize)
             
@@ -71,22 +81,44 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
             // 判断标签是否不在显示区
             // let channelMenuView : ChannelMenuView = self.superview?.viewWithTag(110) as! ChannelMenuView
             // if channelMenuView.contentOffset.x
+            
+            /* let channelMenuView : ChannelMenuView = self.superview?.viewWithTag(110) as! ChannelMenuView
+
+            let leftLabelOffsetX = scrollLabelWidth * CGFloat(offsetLeftTimes)
+            let rightLabelOffsetX = scrollLabelWidth * CGFloat(offsetRightTimes)
+
+            if leftLabelOffsetX < channelMenuView.contentOffset.x {
+                channelMenuView.contentOffset.x = leftLabelOffsetX
+            }
+
+            if CGFloat(rightLabelOffsetX) - channelMenuView.contentOffset.x + scrollLabelWidth > screenWidth {
+
+                print(channelMenuView.contentOffset.x, floor(channelMenuView.contentOffset.x / scrollLabelWidth))
+                let xx = rightLabelOffsetX + channelMenuView.contentOffset.x + scrollLabelWidth - screenWidth
+                let yy = xx.truncatingRemainder(dividingBy: scrollLabelWidth)
+                channelMenuView.contentOffset.x = floor(xx / scrollLabelWidth) * scrollLabelWidth + yy
+            } */
         }
-        /*else {
-            if currentChannelIndex < offsetRight {
-                leftLabelView.font = UIFont.systemFont(ofSize: 15)
-                leftLabelView.textColor = UIColor.white
-                rightLabelView.font = UIFont.systemFont(ofSize: 20)
-                rightLabelView.textColor = UIColor.white
+        else {
+            currentChannelIndex = offsetLeftTimes
+            
+            let channelMenuView : ChannelMenuView = self.superview?.viewWithTag(110) as! ChannelMenuView
+            
+            let currentChannelOffsetX : CGFloat = CGFloat(currentChannelIndex) * scrollLabelWidth
+            
+            let bb = screenWidth.truncatingRemainder(dividingBy: scrollLabelWidth)
+            
+            let cc = Int(floor(screenWidth / scrollLabelWidth))
+
+            if currentChannelOffsetX < channelMenuView.contentOffset.x {
+                channelMenuView.contentOffset.x = currentChannelOffsetX
             }
-            if currentChannelIndex > offsetLeft {
-                leftLabelView.font = UIFont.systemFont(ofSize: 20)
-                leftLabelView.textColor = UIColor.white
-                rightLabelView.font = UIFont.systemFont(ofSize: 15)
-                rightLabelView.textColor = UIColor.white
+            
+            if currentChannelOffsetX + scrollLabelWidth > channelMenuView.contentOffset.x + screenWidth {
+                channelMenuView.contentOffset.x = CGFloat(channelCount) * scrollLabelWidth - CGFloat(channelCount - currentChannelIndex + cc ) * scrollLabelWidth + (scrollLabelWidth - bb)
             }
-            currentChannelIndex += 1
-        }*/
+            // print(CGFloat(currentChannelIndex) * scrollLabelWidth, channelMenuView.contentOffset.x)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -31,7 +31,7 @@ class ChannelAudioView : UIView {
         self.tag = 51
         
         // 毛玻璃效果
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: audioPlayHeight)
         self.addSubview(blurView)

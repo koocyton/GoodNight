@@ -34,6 +34,8 @@ var currentChannelIndex : Int = 0
 var audioPlayHeight : CGFloat = CGFloat(55)
 
 class ChannelMenuView : UIScrollView {
+    
+    var clickTag : Int = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,9 +73,13 @@ class ChannelMenuView : UIScrollView {
                 channelLabel.textColor = UIColor.white
                 channelLabel.font = UIFont.systemFont(ofSize: 20)
             }
-            //
+            // tag
             channelLabel.tag = 1000 + ii
-            //
+            // 点击
+            channelLabel.isUserInteractionEnabled = true
+            channelLabel.addGestureRecognizer(UITapGestureRecognizer(target:channelLabel, action:#selector(channelLabel.showChannel)))
+            // channelLabel.target(forAction: self, withSender: #selector(channelLabel.showChannel))
+            // add view
             self.addSubview(channelLabel)
         }
         
@@ -106,6 +112,27 @@ class ChannelMenuLabel: UILabel {
         //self.shadowColor = UIColor.gray  //灰色阴影
         //self.shadowOffset = CGSize(width:1.5, height:1.5)  //阴影的偏移量
         // scrollLabaleView?.addSubview(label6)
+    }
+    
+    func showChannel() {
+
+        let channelContentView : ChannelContentView = self.superview?.superview?.viewWithTag(63) as! ChannelContentView
+
+        channelContentView.contentOffset.x = CGFloat( self.tag - 1000 ) * screenWidth
+
+        for mm in 0..<channelModel.data.count {
+            
+            let menuLabel = self.superview?.viewWithTag(1000 + mm) as! ChannelMenuLabel
+
+            if ( mm == self.tag - 1000 ) {
+                menuLabel.font = UIFont.systemFont(ofSize: 20)
+                menuLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            }
+            else {
+                menuLabel.font = UIFont.systemFont(ofSize: 15)
+                menuLabel.textColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

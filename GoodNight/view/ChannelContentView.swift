@@ -3,6 +3,11 @@ import UIKit
 
 class ChannelContentView : UIScrollView, UIScrollViewDelegate {
     
+    var timer: Timer!
+    
+    var fromOffsetX : CGFloat = 0
+    var toOffsetX : CGFloat = 0
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -77,27 +82,6 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
             
             leftLabelView.textColor = UIColor(red: offsetLeftColor, green: offsetLeftColor, blue: offsetLeftColor, alpha: 1)
             rightLabelView.textColor = UIColor(red: offsetRightColor, green: offsetRightColor, blue: offsetRightColor, alpha: 1)
-            
-            // 判断标签是否不在显示区
-            // let channelMenuView : ChannelMenuView = self.superview?.viewWithTag(110) as! ChannelMenuView
-            // if channelMenuView.contentOffset.x
-            
-            /* let channelMenuView : ChannelMenuView = self.superview?.viewWithTag(110) as! ChannelMenuView
-
-            let leftLabelOffsetX = scrollLabelWidth * CGFloat(offsetLeftTimes)
-            let rightLabelOffsetX = scrollLabelWidth * CGFloat(offsetRightTimes)
-
-            if leftLabelOffsetX < channelMenuView.contentOffset.x {
-                channelMenuView.contentOffset.x = leftLabelOffsetX
-            }
-
-            if CGFloat(rightLabelOffsetX) - channelMenuView.contentOffset.x + scrollLabelWidth > screenWidth {
-
-                print(channelMenuView.contentOffset.x, floor(channelMenuView.contentOffset.x / scrollLabelWidth))
-                let xx = rightLabelOffsetX + channelMenuView.contentOffset.x + scrollLabelWidth - screenWidth
-                let yy = xx.truncatingRemainder(dividingBy: scrollLabelWidth)
-                channelMenuView.contentOffset.x = floor(xx / scrollLabelWidth) * scrollLabelWidth + yy
-            } */
         }
         else {
             currentChannelIndex = offsetLeftTimes
@@ -109,15 +93,64 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
             let bb = screenWidth.truncatingRemainder(dividingBy: scrollLabelWidth)
             
             let cc = Int(floor(screenWidth / scrollLabelWidth))
+            
+            // self.timer.invalidate()
+            // self.timer = nil
 
             if currentChannelOffsetX < channelMenuView.contentOffset.x {
-                channelMenuView.contentOffset.x = currentChannelOffsetX
+                // channelMenuView.contentOffset.x = currentChannelOffsetX
+                self.fromOffsetX = channelMenuView.contentOffset.x
+                self.toOffsetX = currentChannelOffsetX
+
+                self.timer = Timer.scheduledTimer(timeInterval: 0.001,
+                                                             target:self,
+                                                             selector:#selector(slideChannelMenu),
+                                                             userInfo:nil,
+                                                             repeats:true)
             }
             
             if currentChannelOffsetX + scrollLabelWidth > channelMenuView.contentOffset.x + screenWidth {
-                channelMenuView.contentOffset.x = CGFloat(channelCount) * scrollLabelWidth - CGFloat(channelCount - currentChannelIndex + cc ) * scrollLabelWidth + (scrollLabelWidth - bb)
+                // channelMenuView.contentOffset.x = CGFloat(channelCount) * scrollLabelWidth - CGFloat(channelCount - currentChannelIndex + cc ) * scrollLabelWidth + (scrollLabelWidth - bb)
+                
+                self.fromOffsetX = channelMenuView.contentOffset.x
+                self.toOffsetX = CGFloat(channelCount) * scrollLabelWidth - CGFloat(channelCount - currentChannelIndex + cc ) * scrollLabelWidth + (scrollLabelWidth - bb)
+
+                self.timer = Timer.scheduledTimer(timeInterval: 0.001,
+                                             target:self,
+                                             selector:#selector(slideChannelMenu),
+                                             userInfo:nil,
+                                             repeats:true)
             }
             // print(CGFloat(currentChannelIndex) * scrollLabelWidth, channelMenuView.contentOffset.x)
+        }
+        
+        
+    }
+    
+    func slideChannelMenu() {
+
+        let channelMenuView : ChannelMenuView = self.superview?.viewWithTag(110) as! ChannelMenuView
+
+        if ( self.fromOffsetX < self.toOffsetX ) {
+            if channelMenuView.contentOffset.x >= self.toOffsetX {
+                channelMenuView.contentOffset.x = self.toOffsetX
+                self.timer.invalidate()
+                self.timer = nil
+            }
+            else {
+                channelMenuView.contentOffset.x = channelMenuView.contentOffset.x + 1
+            }
+        }
+        
+        if ( self.fromOffsetX > self.toOffsetX ) {
+            if channelMenuView.contentOffset.x <= self.toOffsetX {
+                channelMenuView.contentOffset.x = self.toOffsetX
+                self.timer.invalidate()
+                self.timer = nil
+            }
+            else {
+                channelMenuView.contentOffset.x = channelMenuView.contentOffset.x - 1
+            }
         }
     }
     

@@ -95,14 +95,17 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
             let cc = Int(floor(screenWidth / scrollLabelWidth))
             
             // self.timer.invalidate()
-            // self.timer = nil
+            if self.timer != nil {
+                self.timer.invalidate()
+                self.timer = nil
+            }
 
             if currentChannelOffsetX < channelMenuView.contentOffset.x {
                 // channelMenuView.contentOffset.x = currentChannelOffsetX
                 self.fromOffsetX = channelMenuView.contentOffset.x
                 self.toOffsetX = currentChannelOffsetX
 
-                self.timer = Timer.scheduledTimer(timeInterval: 0.001,
+                self.timer = Timer.scheduledTimer(timeInterval: 0.002,
                                                              target:self,
                                                              selector:#selector(slideChannelMenu),
                                                              userInfo:nil,
@@ -115,7 +118,7 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
                 self.fromOffsetX = channelMenuView.contentOffset.x
                 self.toOffsetX = CGFloat(channelCount) * scrollLabelWidth - CGFloat(channelCount - currentChannelIndex + cc ) * scrollLabelWidth + (scrollLabelWidth - bb)
 
-                self.timer = Timer.scheduledTimer(timeInterval: 0.001,
+                self.timer = Timer.scheduledTimer(timeInterval: 0.002,
                                              target:self,
                                              selector:#selector(slideChannelMenu),
                                              userInfo:nil,
@@ -207,7 +210,7 @@ class OneChannelView: UICollectionView, UICollectionViewDataSource, UICollection
     // 点击 cell 的时候
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let channelAudioView : ChannelAudioView = self.superview?.superview?.viewWithTag(51) as! ChannelAudioView
-        channelAudioView.nohidd()
+        channelAudioView.play()
     }
 
     // 每个 cell 的处理

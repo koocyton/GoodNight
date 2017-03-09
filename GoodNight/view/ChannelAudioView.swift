@@ -8,8 +8,14 @@
 
 import UIKit
 
+import AVFoundation
+
+import MediaPlayer
+
 class ChannelAudioView : UIView {
 
+    var audioPlayer: AVAudioPlayer? = nil
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -29,6 +35,12 @@ class ChannelAudioView : UIView {
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: audioPlayHeight)
         self.addSubview(blurView)
+
+        // 封面图
+        let cover = UIImageView.init(frame: self.layer.bounds)
+        cover.frame = CGRect(x: 15, y: 15, width: 70, height: 70)
+        cover.image = UIImage(named: "normal")
+        self.addSubview(cover)
         
         // 分割线
         let hrView = UIView(frame: (self.layer.bounds))
@@ -61,12 +73,30 @@ class ChannelAudioView : UIView {
         self.isHidden = false
     }
     
-    func play(){
-        self.nohidd()
+    func stop() {
+        if audioPlayer != nil {
+            audioPlayer?.stop()
+        }
+        self.hidden()
     }
     
-    func stop(){
-        self.hidden()
+    func play(){
+        // let path = Bundle.main.path(forResource: "zjl", ofType: "m4a")
+        let url = Bundle.main.url(forResource: "gqq", withExtension: "mp3")!
+        do {
+            /*audioPlayer = try AVAudioPlayer(contentsOf: url)
+            guard let audioPlayer = audioPlayer else { return }
+            print(audioPlayer)
+            audioPlayer.prepareToPlay()*/
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+            self.nohidd()
+        } catch let error as NSError {
+            print(error.description)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -30,6 +30,8 @@
 		BAE15CEE1E711B93007EC21A /* gqq.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAE15CED1E711B93007EC21A /* gqq.mp3 */; };
 		BAF1726A1E6BBE5F003B6383 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF1725D1E6BBE55003B6383 /* SwiftyJSON.framework */; };
 		BAF1726B1E6BBE5F003B6383 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAF1725D1E6BBE55003B6383 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAFE836D1E737B0C00860B4B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFE836C1E737B0C00860B4B /* HealthKit.framework */; };
+		BAFE836F1E737B8A00860B4B /* RecordContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFE836E1E737B8A00860B4B /* RecordContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,9 @@
 		BACF29FA1E1691A900E28D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAE15CED1E711B93007EC21A /* gqq.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gqq.mp3; sourceTree = "<group>"; };
 		BAF172511E6BBE55003B6383 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
+		BAFE836A1E737B0C00860B4B /* GoodNight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoodNight.entitlements; sourceTree = "<group>"; };
+		BAFE836C1E737B0C00860B4B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		BAFE836E1E737B8A00860B4B /* RecordContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF1726A1E6BBE5F003B6383 /* SwiftyJSON.framework in Frameworks */,
+				BAFE836D1E737B0C00860B4B /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +214,7 @@
 		BA350A3C1E6911C2005FA6BA /* view */ = {
 			isa = PBXGroup;
 			children = (
+				BAFE836E1E737B8A00860B4B /* RecordContentView.swift */,
 				BAAE82231E6EBEB500EDDC91 /* ChannelAudioView.swift */,
 				BA350A3D1E6911C2005FA6BA /* ChannelContentView.swift */,
 				BA350A3E1E6911C2005FA6BA /* ChannelMenuView.swift */,
@@ -241,6 +248,7 @@
 				BACF29F71E1691A900E28D42 /* GoodNightUITests */,
 				BACF29D41E1691A900E28D42 /* Products */,
 				BAF172511E6BBE55003B6383 /* SwiftyJSON.xcodeproj */,
+				BAFE836B1E737B0C00860B4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +265,7 @@
 		BACF29D51E1691A900E28D42 /* GoodNight */ = {
 			isa = PBXGroup;
 			children = (
+				BAFE836A1E737B0C00860B4B /* GoodNight.entitlements */,
 				BAB78A0F1E6B088100B41350 /* lib */,
 				BA350A3C1E6911C2005FA6BA /* view */,
 				BA350A391E6911B9005FA6BA /* model */,
@@ -302,6 +311,14 @@
 				BAF172691E6BBE55003B6383 /* SwiftyJSON tvOS Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BAFE836B1E737B0C00860B4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAFE836C1E737B0C00860B4B /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +393,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = BX9G65C6W8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					BACF29E81E1691A900E28D42 = {
 						CreatedOnToolsVersion = 8.0;
@@ -516,6 +538,7 @@
 				BA350A351E690FA6005FA6BA /* FriendsViewController.swift in Sources */,
 				BA350A381E690FA6005FA6BA /* ChannelViewController.swift in Sources */,
 				BA8DCF361E6BAFA20082DFCD /* Package.swift in Sources */,
+				BAFE836F1E737B8A00860B4B /* RecordContentView.swift in Sources */,
 				BA350A361E690FA6005FA6BA /* PersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +695,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GoodNight/GoodNight.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BX9G65C6W8;
 				INFOPLIST_FILE = GoodNight/Info.plist;
@@ -691,6 +715,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GoodNight/GoodNight.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BX9G65C6W8;
 				INFOPLIST_FILE = GoodNight/Info.plist;

@@ -34,9 +34,12 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
             let oneChannelView = OneChannelView.init(frame: self.layer.bounds, layout: OneChannelLayout(), index: ii)
             // 大小, 坐标
             oneChannelView.frame = CGRect(x: CGFloat(ii) * screenWidth, y: 0, width: screenWidth, height: channelContentHeight)
+            oneChannelView.contentSize = CGSize(width: screenWidth , height:channelContentHeight-200)
+            // oneChannelView.scrollRectToVisible(<#T##rect: CGRect##CGRect#>, animated: <#T##Bool#>)
             //oneChannelView.delegate = oneChannelView
             //oneChannelView.dataSource = oneChannelView
             // oneChannelView.cellData = channel
+            oneChannelView.tag = 100 + ii
             // 添加到界面
             self.addSubview(oneChannelView)
         }
@@ -44,11 +47,11 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if scrollView.contentOffset.x < 0 {
+        if scrollView.contentOffset.x < scrollLabelWidth {
             return
         }
         
-        if scrollView.contentOffset.x > screenWidth * CGFloat(channelCount - 1) {
+        if scrollView.contentOffset.x > screenWidth * CGFloat(channelCount - 1) - scrollLabelWidth{
             return
         }
 
@@ -100,25 +103,25 @@ class ChannelContentView : UIScrollView, UIScrollViewDelegate {
                 self.timer = nil
             }
 
-            if currentChannelOffsetX < channelMenuView.contentOffset.x {
+            if currentChannelOffsetX < channelMenuView.contentOffset.x + scrollLabelWidth {
                 // channelMenuView.contentOffset.x = currentChannelOffsetX
                 self.fromOffsetX = channelMenuView.contentOffset.x
-                self.toOffsetX = currentChannelOffsetX
+                self.toOffsetX = currentChannelOffsetX - scrollLabelWidth
 
-                self.timer = Timer.scheduledTimer(timeInterval: 0.002,
+                self.timer = Timer.scheduledTimer(timeInterval: 0.0015,
                                                              target:self,
                                                              selector:#selector(slideChannelMenu),
                                                              userInfo:nil,
                                                              repeats:true)
             }
             
-            if currentChannelOffsetX + scrollLabelWidth > channelMenuView.contentOffset.x + screenWidth {
+            if currentChannelOffsetX + scrollLabelWidth > channelMenuView.contentOffset.x + screenWidth - scrollLabelWidth{
                 // channelMenuView.contentOffset.x = CGFloat(channelCount) * scrollLabelWidth - CGFloat(channelCount - currentChannelIndex + cc ) * scrollLabelWidth + (scrollLabelWidth - bb)
                 
                 self.fromOffsetX = channelMenuView.contentOffset.x
-                self.toOffsetX = CGFloat(channelCount) * scrollLabelWidth - CGFloat(channelCount - currentChannelIndex + cc ) * scrollLabelWidth + (scrollLabelWidth - bb)
+                self.toOffsetX = CGFloat(channelCount) * scrollLabelWidth - CGFloat(channelCount - currentChannelIndex + cc ) * scrollLabelWidth + (scrollLabelWidth - bb) + scrollLabelWidth
 
-                self.timer = Timer.scheduledTimer(timeInterval: 0.002,
+                self.timer = Timer.scheduledTimer(timeInterval: 0.0015,
                                              target:self,
                                              selector:#selector(slideChannelMenu),
                                              userInfo:nil,

@@ -31,7 +31,7 @@ let cellHeight : CGFloat = CGFloat(150)
 // 当前频道的索引
 var currentChannelIndex : Int = 0
 // 音乐播放器高度
-var audioPlayHeight : CGFloat = CGFloat(100)
+var audioPlayHeight : CGFloat = CGFloat(180)
 
 class ChannelMenuView : UIScrollView {
     

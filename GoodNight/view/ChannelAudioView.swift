@@ -67,10 +67,16 @@ class ChannelAudioView : UIView {
     
     func hidden() {
         self.isHidden = true
+        // let oneChannelView : OneChannelView = self.superview?.viewWithTag(100+currentChannelIndex) as! OneChannelView
+        //oneChannelView.frame = CGRect(x: 0, y: statusBarHeight + scrollLabelHeight, width: screenWidth, height: channelContentHeight)
+        //print(oneChannelView)
     }
     
     func nohidd() {
         self.isHidden = false
+        // let oneChannelView : OneChannelView = self.superview?.viewWithTag(100+currentChannelIndex) as! OneChannelView
+        // oneChannelView.frame = CGRect(height: channelContentHeight - audioPlayHeight)
+        //print(oneChannelView)
     }
     
     func stop() {
@@ -81,6 +87,8 @@ class ChannelAudioView : UIView {
     }
     
     func play(){
+        self.nohidd()
+        return
         // let path = Bundle.main.path(forResource: "zjl", ofType: "m4a")
         let url = Bundle.main.url(forResource: "gqq", withExtension: "mp3")!
         do {

@@ -8,6 +8,10 @@
 
 import UIKit
 
+//import HealthKit
+
+//var healthStore: HKHealthStore? = nil;
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

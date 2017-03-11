@@ -17,6 +17,7 @@
 		BA350A3B1E6911B9005FA6BA /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A3A1E6911B9005FA6BA /* ChannelModel.swift */; };
 		BA350A3F1E6911C2005FA6BA /* ChannelContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A3D1E6911C2005FA6BA /* ChannelContentView.swift */; };
 		BA350A401E6911C2005FA6BA /* ChannelMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA350A3E1E6911C2005FA6BA /* ChannelMenuView.swift */; };
+		BA5643A11E73ED9E0073B2A8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFE836C1E737B0C00860B4B /* HealthKit.framework */; };
 		BA8DCF361E6BAFA20082DFCD /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8DCF351E6BAFA20082DFCD /* Package.swift */; };
 		BA99071F1E5D5CC600631F2C /* PersonView.html in Resources */ = {isa = PBXBuildFile; fileRef = BA99071D1E5D5CC600631F2C /* PersonView.html */; };
 		BAAE82241E6EBEB500EDDC91 /* ChannelAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE82231E6EBEB500EDDC91 /* ChannelAudioView.swift */; };
@@ -30,7 +31,6 @@
 		BAE15CEE1E711B93007EC21A /* gqq.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAE15CED1E711B93007EC21A /* gqq.mp3 */; };
 		BAF1726A1E6BBE5F003B6383 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF1725D1E6BBE55003B6383 /* SwiftyJSON.framework */; };
 		BAF1726B1E6BBE5F003B6383 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAF1725D1E6BBE55003B6383 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BAFE836D1E737B0C00860B4B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFE836C1E737B0C00860B4B /* HealthKit.framework */; };
 		BAFE836F1E737B8A00860B4B /* RecordContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFE836E1E737B8A00860B4B /* RecordContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -160,8 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5643A11E73ED9E0073B2A8 /* HealthKit.framework in Frameworks */,
 				BAF1726A1E6BBE5F003B6383 /* SwiftyJSON.framework in Frameworks */,
-				BAFE836D1E737B0C00860B4B /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

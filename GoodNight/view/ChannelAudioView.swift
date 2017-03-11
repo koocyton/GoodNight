@@ -20,11 +20,11 @@ class ChannelAudioView : UIView {
         super.init(frame: frame)
 
         // x 坐标
-        let yy = screenHeight - audioPlayHeight - tabBarHeight
+        // let yy = screenHeight - audioPlayHeight - tabBarHeight
         // 背景色
         self.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 0.5)
         // x , y , width , height
-        self.frame = CGRect(x: 0, y: yy, width: screenWidth, height: audioPlayHeight)
+        self.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         // 隐藏
         self.isHidden = true
         // tag
@@ -33,7 +33,7 @@ class ChannelAudioView : UIView {
         // 毛玻璃效果
         let blurEffect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: audioPlayHeight)
+        blurView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         self.addSubview(blurView)
 
         // 封面图
@@ -87,8 +87,6 @@ class ChannelAudioView : UIView {
     }
     
     func play(){
-        self.nohidd()
-        return
         // let path = Bundle.main.path(forResource: "zjl", ofType: "m4a")
         let url = Bundle.main.url(forResource: "gqq", withExtension: "mp3")!
         do {
